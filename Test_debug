@@ -1,0 +1,38 @@
+% Example Data: Rows represent trials [N, hits]
+data = [
+    3, 0;
+    3, 1;
+    3, 2;
+    3, 3;
+    5, 4;
+    5, 5;
+    7, 6;
+    7, 4
+];
+
+% Get unique values of N
+unique_N = unique(data(:, 1));
+
+% Initialize the probability matrix
+max_hits = max(data(:, 2));
+prob_matrix = zeros(length(unique_N), max_hits + 1);
+
+% Compute probabilities for each N
+for i = 1:length(unique_N)
+    N = unique_N(i);
+    hits = data(data(:, 1) == N, 2);
+    counts = histcounts(hits, -0.5:1:(N+0.5)); % Count occurrences of 0:N
+    prob_matrix(i, 1:N+1) = counts / sum(counts); % Normalize to probabilities
+end
+
+% Plot the heatmap
+figure;
+imagesc(prob_matrix);
+colormap('viridis'); % Use a perceptually uniform colormap
+colorbar;
+xlabel('Number of Hits');
+ylabel('Number of Shots (N)');
+xticks(0:max_hits);
+yticks(1:length(unique_N));
+yticklabels(unique_N);
+title('Probability Heatmap of Hits vs. Shots');
