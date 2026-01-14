@@ -1,12 +1,12 @@
 #include "max6675.h"
 
 // Define the MAX6675 module pins
-const int thermoSO = 33;  // MISO (SO) - Data Out
-const int thermoSCK = 31; // Serial Clock (SCK)
+const int thermoSCK = 53; // Serial Clock (SCK)
+const int thermoSO = 51;  // MISO (SO) - Data Out
 
-const int thermoCS1 = 49;  // Chip Select (CS)
-const int thermoCS2 = 47;  // Chip Select (CS)
-const int thermoCS3 = 45;  // Chip Select (CS)
+const int thermoCS1 = 47;  // Chip Select (CS)
+const int thermoCS2 = 45;  // Chip Select (CS)
+const int thermoCS3 = 43;  // Chip Select (CS)
 
 // Create a MAX6675 object
 MAX6675 thermocouple1(thermoSCK, thermoCS1, thermoSO);
