@@ -1,0 +1,1 @@
+py -m pip install requests tqdm netCDF4 xarray earthaccess numpy matplotlib
