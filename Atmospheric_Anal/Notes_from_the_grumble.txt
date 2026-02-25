@@ -1,0 +1,7 @@
+1. We are using the following dataset 
+https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=download
+
+2. There is a "feature" where if you slice the data set with a region, it takes way more to set-up the api download. Morover, the APi only lets you download a limited amount of data at a time
+	a. It is probably better to download the entire data set rather than a region and then pull the data as needed
+	b. Will have to download the data by per/year 
+	c. Will output the data into a data strcuturre that will go into latext to pull 

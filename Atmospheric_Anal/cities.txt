@@ -1,0 +1,4 @@
+city,latitude,longitude
+Fullerton,33.8704,-117.9242
+Phoenix,33.4484,-112.0740
+Thousand Oaks,34.1706,-118.8376
