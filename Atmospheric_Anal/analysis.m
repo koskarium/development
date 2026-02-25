@@ -1,16 +1,25 @@
-file ='C:\Users\Oskar\Documents\GitHub\development\Atmospheric_Anal\MERRA2_400.tavg1_2d_slv_Nx.20251201.nc4'
-daten = ncread(file,'TS');
+file ='C:\Users\oskar\Desktop\GITGOOD\development\Atmospheric_Anal\Era5\Data\ERA5_2023_2m_temperature.nc'
+ncdisp(file);
+
 % Read coordinate arrays
-lat = ncread(file, 'lat');
-lon = ncread(file, 'lon');
+lat = ncread(file, 'latitude');
+lon = ncread(file, 'longitude');
+
+time = ncread(file,'valid_time');
+nTime = length(time);
 
 % Find indices for desired region
-lat_idx = find(lat >= -50 & lat <= 50);
-lon_idx = find(lon >= -130 & lon <= -60);
+lat_idx = find(lat >= 20 & lat <= 50);
+lon_idx = find(lon >= 235 & lon <= 294);
+
+% Define subset read parameters
+start = [min(lon_idx), min(lat_idx), 1];
+count = [length(lon_idx), length(lat_idx), nTime];
 
 % Subset T2M
-daten_subset = daten(lon_idx, lat_idx, :);
+daten_subset = ncread(file, 't2m', start, count);
 
+% Visualize first time step
 time_step = 1;  % first hour
 imagesc(lon(lon_idx), lat(lat_idx), squeeze(daten_subset(:, :, time_step))')
 set(gca, 'YDir', 'normal') % Correct Y-axis orientation
@@ -19,6 +28,7 @@ title('2-meter Temperature (K)')
 xlabel('Longitude')
 ylabel('Latitude')
 
+% Loop through all hours
 for t = 1:size(daten_subset,3)
     imagesc(lon(lon_idx), lat(lat_idx), squeeze(daten_subset(:,:,t))')
     set(gca, 'YDir', 'normal')
