@@ -99,8 +99,10 @@ https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=dow
 
 5. Proposed Peak-Over-Threshold (POT) with different duration 
 	a. POT is widely used in hydrology, climatology, finance, and environmental extremes:
-		i. 	https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016WR019426
-		ii. https://www.nature.com/articles/s41598-022-22243-8
+		i. 		https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016WR019426
+		ii.		https://www.nature.com/articles/s41598-022-22243-8
+		iii.	https://www.wcrp-climate.org/images/summer_school/Agenda_and_Program_Downloadable_Lectures/Summerschool_Nanjing_lecture_Extreme_value_theory_Hannart.pdf
+		iv. 	https://grotjahn.ucdavis.edu/EWEs/extremes_primer_v9_22_15.pdf
 	b. Ponteially - https://en.wikipedia.org/wiki/Hawkes_process
 		i. 	Clustering and oscillation period, assuming there is no independence between hot days i.e. today is hot so probably tomorrow will too
 	c. POT is the most used method at the moment over Block Maxima, the distribution of values you get out should them follow a generalised Pareto distribution
