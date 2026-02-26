@@ -1,4 +1,5 @@
-file ='C:\Users\oskar\Desktop\GITGOOD\development\Atmospheric_Anal\Era5\Data\ERA5_2023_2m_temperature.nc'
+file ='C:\Users\kevin.negron\Downloads\development-main\Atmospheric_Anal\Era5\temp\era5_2023.nc'
+
 ncdisp(file);
 
 % Read coordinate arrays

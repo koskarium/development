@@ -1,0 +1,7 @@
+To use SSH keys with GitLab, you must:
+
+Generate an SSH key pair on your local system.
+Add your SSH key to your GitLab account.
+Verify your connection to GitLab.
+
+ssh -V

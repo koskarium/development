@@ -123,4 +123,11 @@ https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=dow
 		i. 	Using the GPD fit, calculate return levels for engineering-relevant periods (10, 25, 30 year)
 		ii. Provides a probabilistic, physically meaningful extreme estimate rather than just raw percentiles
 	i. 
-	
+
+6. Altitude Profiles
+
+7. Documentation in PPPT
+	a.	Databases
+	b.	Statistical Analysis
+	c. 	What Data Products are Worldwide
+	d.	Def for data products for Radiation in ERA5

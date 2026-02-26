@@ -36,6 +36,11 @@ else:
 	print('Error, config_file not found')
 	exit()
 
+# Since we are using verify: 0 so we can pypass SSL verification
+import urllib3
+from urllib3.exceptions import InsecureRequestWarning
+urllib3.disable_warnings(InsecureRequestWarning)
+
 # Cities
 cities_file = current_parent_dir / "cities.txt"
 cities = pd.read_csv(cities_file, header=None, names=["city","latitude","longitude"], skiprows=1)
@@ -48,8 +53,8 @@ dataset = "reanalysis-era5-single-levels"
 variables = ["2m_temperature"]
 download_format = "unarchived"  # "zip" or "unarchived"
 
-start_year = 2023
-end_year = 2023
+start_year = 2022
+end_year = 2022
 years_to_download = [y for y in range(start_year, end_year+1)]
 
 months = [f"{m:02d}" for m in range(1,13)]
@@ -77,10 +82,11 @@ def download_year(year):
         "day": days,
         "time": hours,
         "data_format": "netcdf",
+        "download_format": download_format
     }
     
     try:
-        # client.retrieve(dataset, request).download(str(output_file))
+        client.retrieve(dataset, request).download(str(output_file))
         print(f"Downloaded {output_file.name}")
         return output_file
     except Exception as e:
