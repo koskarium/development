@@ -1,58 +1,50 @@
-%% mil310_calc.m
-% Calculate MIL-HDBK-310 exceedance values (1%,5%,10%) for ERA5 cities
+%% ================= MIL-HDBK-310 with Month Tracking =================
+% Using synthetic T_data table (columns: Year, Month, Day, Hour, Temperature_C)
 
-%% Set up folders relative to script
-script_folder = fileparts(mfilename('fullpath'));  % folder where script resides
-cities_folder = fullfile(script_folder, 'Era5', 'Cities'); % folder with CSVs
+% Define percent exceedances
+exceedance_pct = [1, 5, 10];
+percentile_values = 100 - exceedance_pct;   % MATLAB percentile
 
-output_file = fullfile(script_folder, 'Era5', 'MIL310_summary.csv');
+% Unique years
+years_list = unique(T_data.Year);
 
-%% Find all CSV files
-csv_files = dir(fullfile(cities_folder, 'ERA_*.csv'));
-if isempty(csv_files)
-    error('No CSV files found in %s', cities_folder);
-end
+% Prepare results table with month columns
+results = table('Size',[0 8],...
+    'VariableTypes', {'string','double','double','double','double','double','double','double'},...
+    'VariableNames', {'City','Year','MIL1','MIL5','MIL10','Month1','Month5','Month10'});
 
-%% Define percentiles for MIL-HDBK-310
-exceedance_pct = [1, 5, 10];  % percent exceedance
-percentile_values = 100 - exceedance_pct;  % convert to MATLAB percentile (below)
+city_name = "SyntheticCity";
 
-%% Prepare results table
-results = table('Size',[0 5],...
-                'VariableTypes', {'string','double','double','double','double'},...
-                'VariableNames', {'City','Year','MIL1','MIL5','MIL10'});
-
-%% Loop through files
-for k = 1:length(csv_files)
-    csv_name = csv_files(k).name;
-    csv_path = fullfile(csv_files(k).folder, csv_name);
+for y = 1:length(years_list)
+    yr = years_list(y);
     
-    % Extract city and year from filename
-    % Expected format: ERA_<CityName>_<Year>.csv
-    tokens = split(csv_name, {'_','.'});
-    city = string(tokens{2});
-    year_val = str2double(tokens{3});
+    months_list = 1:12;
+    MIL_monthly = zeros(length(months_list), 3);  % 3 percentiles
     
-    % Load data
-    data = readtable(csv_path);
-    
-    % Ensure temperature column exists
-    if ~ismember('t2m', data.Properties.VariableNames)
-        error('CSV %s missing column "t2m"', csv_name);
+    for m = months_list
+        idx = T_data.Year==yr & T_data.Month==m;
+        temps = T_data.Temperature_C(idx);
+        if ~isempty(temps)
+            MIL_monthly(m,:) = prctile(temps, percentile_values);
+        else
+            MIL_monthly(m,:) = NaN;
+        end
     end
     
-    temps = data.t2m;  % in K
+    % Annual MIL = max per percentile across months
+    [MIL_annual, month_idx] = max(MIL_monthly,[],1,'omitnan');
     
-    % Calculate MIL for each exceedance
-    MIL_values = prctile(temps, percentile_values);
+    % Append to results table
+    results = [results; {city_name, yr, MIL_annual(1), MIL_annual(2), MIL_annual(3), ...
+                         month_idx(1), month_idx(2), month_idx(3)}];
     
-    % Append to results
-    results = [results; {city, year_val, MIL_values(1), MIL_values(2), MIL_values(3)}];
-    
-    fprintf('Processed %s: MIL 1%%=%.2f K, 5%%=%.2f K, 10%%=%.2f K\n',...
-            city, MIL_values(1), MIL_values(2), MIL_values(3));
+    fprintf('Year %d:\n', yr);
+    fprintf('  MIL1%%=%.2f°C (Month %d)\n', MIL_annual(1), month_idx(1));
+    fprintf('  MIL5%%=%.2f°C (Month %d)\n', MIL_annual(2), month_idx(2));
+    fprintf('  MIL10%%=%.2f°C (Month %d)\n', MIL_annual(3), month_idx(3));
 end
 
-%% Save results
+%% Optional: save to CSV
+output_file = 'MIL310_summary_synthetic_with_month.csv';
 writetable(results, output_file);
 fprintf('MIL-HDBK-310 summary saved to %s\n', output_file);

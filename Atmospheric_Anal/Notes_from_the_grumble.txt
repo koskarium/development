@@ -5,3 +5,120 @@ https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=dow
 	a. It is probably better to download the entire data set rather than a region and then pull the data as needed
 	b. Will have to download the data by per/year 
 	c. Will output the data into a data strcuturre that will go into latext to pull 
+
+3. DATASETS
+	MIL-HDBK-310 – Environmental Design Reference
+
+		Purpose: Provides standardized 1%, 5%, 10% exceedance statistics for temperature, humidity, and other environmental parameters to support engineering design.
+		Variables / Parameters:
+			Dry-bulb temperature: Air temperature at 1.5–2 m above ground
+			Wet-bulb temperature: Combines temperature and humidity to indicate human/equipment heat stress
+			Relative humidity: Atmospheric moisture content
+			Wind speed: Usually averaged over short-term observations
+			Solar radiation / thermal loads: Included for extreme design considerations
+		Spatial Resolution: 1° × 1° global grid (~111 km), station-interpolated
+		Temporal Resolution: Hourly; standardized 31-day month for percentile calculations
+		Height: 1.5–2 m above ground (air temperature, wet-bulb)
+
+	ERA5 (ECMWF Reanalysis – Hourly 2 m Air Temperature & More)
+
+		Variables:
+			2m_temperature – Near-surface air temperature at 2 m
+			2m_specific_humidity – Moisture content of the air at 2 m
+			surface_pressure – Atmospheric pressure at surface
+			10m_u_component_of_wind – East-west wind component at 10 m
+			10m_v_component_of_wind – North-south wind component at 10 m
+			skin_temperature – Surface skin temperature
+		Spatial: 0.25° × 0.25° (~28 km)
+		Temporal: Hourly
+		Time Range: 1940–present
+		Data Type: Reanalysis
+		Height: 2 m (air), 10 m (wind), surface (skin)
+		Access: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview 
+
+	MERRA‑2 (NASA Reanalysis – 2 m Air Temperature & More)
+
+		Variables:
+			T2M – 2 m air temperature
+			QV2M – 2 m specific humidity
+			PS – Surface pressure
+			U10M / V10M – 10 m wind components
+			TS – Surface skin temperature
+		Spatial: 0.5° × 0.625° (~50–70 km)
+		Temporal: Hourly
+		Time Range: 1980–present
+		Data Type: Reanalysis
+		Height: 2 m (air), 10 m (wind), surface (skin)
+		Access: https://gmao.gsfc.nasa.gov/gmao-products/merra-2/data-access_merra-2/
+
+	MODIS Land Surface Temperature (NASA Satellite)
+
+		Variables:
+			LST_1KM – Daily 1 km land surface temperature
+		Spatial: 1 km × 1 km
+		Temporal: Daily
+		Time Range: 2000–present
+		Data Type: Satellite
+		Height: Surface skin
+		Access: https://modis.gsfc.nasa.gov/data/dataprod/mod21.php 
+
+	GHCN-CAMS (NOAA Gridded Daily Surface Air Temperature)
+
+		Variables:
+			TAVG – Daily mean air temperature at 2 m
+			TMAX – Daily maximum air temperature
+			TMIN – Daily minimum air temperature
+			PRCP – Daily precipitatio
+		Spatial: 0.5° × 0.5
+		Temporal: Monthl
+		Time Range: 1948–202
+		Data Type: Observatio
+		Height: 2 m
+		Access: https://psl.noaa.gov/data/gridded/data.ghcncams.html
+
+	GHCN-Daily (NOAA Station Observations)
+
+		Variables:
+			Maximum / Minimum Air Temperature
+			Daily Mean Air Temperature
+			Precipitation
+		Spatial: Point stations
+		Temporal: Daily
+		Time Range: 1880–present (varies by station)
+		Data Type: Observation
+		Height: 2 m
+		Access: https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc:C00861&utm_source=chatgpt.com
+		Note: Data requires contacting NOAA; interpolation needed to create gridded fields
+
+
+4. For MIL-310 
+	a. We group by months across time
+	b. Calculate 1, 5, 10 percentile for each month at both extremes - we should have 12
+	c. Report the hottest and the coldest 
+	d. Report the max/min of the dataset and the year 
+
+5. Proposed Peak-Over-Threshold (POT) with different duration 
+	a. POT is widely used in hydrology, climatology, finance, and environmental extremes:
+		i. 	https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016WR019426
+		ii. https://www.nature.com/articles/s41598-022-22243-8
+	b. Ponteially - https://en.wikipedia.org/wiki/Hawkes_process
+		i. 	Clustering and oscillation period, assuming there is no independence between hot days i.e. today is hot so probably tomorrow will too
+	c. POT is the most used method at the moment over Block Maxima, the distribution of values you get out should them follow a generalised Pareto distribution
+	d. Duration-based approach
+		i. 		Instead of analyzing hourly points, compute rolling means over durations relevant to engineering or human stress:
+		ii. 	1h instantaneous extreme
+		iii.	6h short-term sustained
+		iv. 	24h daily sustained
+		v. 		72h multi-day heatwave 
+	e.  Threshold selection
+		i. 	Choose 1%, 5%, 10% exceedance thresholds for each duration to mimic MIL-310 percentile style.
+		ii.	Thresholds are duration-dependent, so a 24h extreme may be lower than a 1h extreme but represents sustained stress.
+	f.	Extract exceedances and decluster (optional)
+		i. 	Identify all values exceeding the threshold
+		ii.	If clustering occurs (e.g., multi-day heatwave), keep only independent events separated by a minimum gap (e.g., 48h) or model clustering with a Hawkes process
+	g. Fit Generalized Pareto Distribution (GPD)
+	h. Compute return levels
+		i. 	Using the GPD fit, calculate return levels for engineering-relevant periods (10, 25, 30 year)
+		ii. Provides a probabilistic, physically meaningful extreme estimate rather than just raw percentiles
+	i. 
+	

@@ -48,7 +48,7 @@ dataset = "reanalysis-era5-single-levels"
 variables = ["2m_temperature"]
 download_format = "unarchived"  # "zip" or "unarchived"
 
-start_year = 2021
+start_year = 2023
 end_year = 2023
 years_to_download = [y for y in range(start_year, end_year+1)]
 
@@ -80,7 +80,7 @@ def download_year(year):
     }
     
     try:
-        client.retrieve(dataset, request).download(str(output_file))
+        # client.retrieve(dataset, request).download(str(output_file))
         print(f"Downloaded {output_file.name}")
         return output_file
     except Exception as e:
@@ -112,9 +112,11 @@ def process_nc(nc_file):
         df_city = city_data["t2m"].to_dataframe().reset_index()
         df_city["date"] = pd.to_datetime(df_city["time"]).dt.date
         df_city["hour"] = pd.to_datetime(df_city["time"]).dt.hour
-        df_city_out = df_city[["date","hour","t2m"]]
+        df_city["day"] = pd.to_datetime(df_city["time"]).dt.day
+        df_city["month"] = pd.to_datetime(df_city["time"]).dt.month
+        df_city["year"] = pd.to_datetime(df_city["time"]).dt.year
+        df_city_out = df_city[["year","month","day","hour","t2m"]]
 
-        df_city_out["year"] = pd.to_datetime(df_city_out["date"]).dt.year
         for year_val, df_year in df_city_out.groupby("year"):
             output_csv = era5_cities_folder / f"ERA_{city_clean}_{year_val}.csv"
             if output_csv.exists():
