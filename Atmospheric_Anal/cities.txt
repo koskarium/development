@@ -2,3 +2,18 @@ city,latitude,longitude
 Fullerton,33.8704,-117.9242
 Phoenix,33.4484,-112.0740
 Thousand Oaks,34.1706,-118.8376
+China Lake,35.686,-117.690
+Pt Mugu,34.119,-119.120
+White Sands,32.383,-106.478
+Eglin AFB,30.483,-86.533
+Pax River,38.286,-76.412
+Joint Base ElmendorfRichardson,61.251,-149.806
+Fort Greely,63.905,-145.554
+Andoya Space Center,69.293,16.020
+Woomera Test Range,-31.199,136.825
+Ramstein Air Base,49.437,7.600
+Miyako Island,24.800,125.267
+Paracel Islands,16.667,112.333
+Diego Garcia Island,-7.412,72.453
+Lajes Air Force Base,38.762,-27.091
+Pituffik Space Base,76.533,-68.717

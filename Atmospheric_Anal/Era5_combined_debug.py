@@ -5,8 +5,6 @@ import pandas as pd
 import os
 import zipfile as ZF
 import cdsapi
-import gc
-import time
 
 #########################
 # Configuration
@@ -53,8 +51,8 @@ dataset = "reanalysis-era5-single-levels"
 variables = ["2m_temperature"]
 download_format = "unarchived"  # "zip" or "unarchived"
 
-start_year = 2022
-end_year = 2022
+start_year = 1940
+end_year = 2025
 years_to_download = [y for y in range(start_year, end_year+1)]
 
 months = [f"{m:02d}" for m in range(1,13)]

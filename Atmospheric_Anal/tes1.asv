@@ -1,0 +1,93 @@
+% This code is to analyze atmosphere data ala MIL-310-HBK 
+% This code will intake hourly data mined using Era5_datamanager.
+
+
+%% ==========================================================
+%  Scan Directory and Create File Pointers
+% ===========================================================
+clear; clc;
+
+% Directory
+base_dir = 'Era5/Cities';
+if ~isfolder(base_dir)
+    error('Directory not found: %s. Please ensure the Era5/Cities folder exists.', base_dir);
+end
+
+% Find all relevant CSV files
+file_pattern = fullfile(base_dir, 'ERA_*.csv');
+file_list = dir(file_pattern);
+file_pointers = table('Size', [length(file_list), 3], ...
+                      'VariableTypes', {'string', 'double', 'string'}, ...
+                      'VariableNames', {'City', 'Year', 'FilePath'});
+
+% Loop through files and parse names
+fprintf('Scanning directory and building file map...\n');
+for i = 1:length(file_list)
+    current_filename = file_list(i).name;
+    
+    % Use regular expressions to reliably extract city and year
+    current_split = split(extractBefore(current_filename,".csv"),"_");
+    
+    if ~isempty(current_split)
+        city_name = string(current_split{2});
+        year_val  = str2double(current_split{3});
+        full_path = fullfile(file_list(i).folder, current_filename);
+        
+        % Add the parsed info to our pointer table
+        file_pointers(i,:) = {city_name, year_val, full_path};
+    else
+        fprintf('Warning: Skipping file with unexpected name format: %s\n', filename);
+    end
+end
+
+% Display the created pointer table
+disp('Successfully created file pointer table:');
+
+
+
+%% ==========================================================
+%  Example: Loop by City and Year to Analyze Data
+% ===========================================================
+fprintf('\n--- Starting Analysis Loop ---\n');
+
+% Get a list of unique cities from our table
+unique_cities = unique(file_pointers.City);
+
+% --- Outer loop: Iterate through each city ---
+for c = 1:length(unique_cities)
+    current_city = unique_cities(c);
+    fprintf('\nProcessing City: %s\n', current_city);
+    
+    % Filter the table to get all entries for the current city
+    city_files = file_pointers(file_pointers.City == current_city, :);
+    
+    % --- Inner loop: Iterate through each available year for that city ---
+    for y = 1:height(city_files)
+        current_year = city_files.Year(y);
+        file_to_load = city_files.FilePath(y);
+        
+        fprintf('  -> Loading Year: %d from file: %s\n', current_year, file_to_load);
+        
+        % --- HERE is where you load and process your data ---
+        % The 'T_data' table from your original script would be loaded here.
+        try
+            % opts = detectImportOptions(file_to_load); % Optional: for more control
+            T_data = readtable(file_to_load);
+            
+            fprintf('     File loaded successfully. It has %d rows.\n', height(T_data));
+            
+            % ================================================================
+            % PASTE YOUR ANALYSIS CODE HERE
+            % For example, you would now run the MIL-HDBK-310 or POT analysis
+            % on the 'T_data' table that was just loaded.
+            % ================================================================
+            
+        catch ME
+            fprintf('     ERROR loading or processing file: %s\n', file_to_load);
+            fprintf('     Error message: %s\n', ME.message);
+        end
+    end
+end
+
+fprintf('\n--- Analysis Complete ---\n');
+

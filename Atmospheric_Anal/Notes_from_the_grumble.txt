@@ -131,3 +131,6 @@ https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=dow
 	b.	Statistical Analysis
 	c. 	What Data Products are Worldwide
 	d.	Def for data products for Radiation in ERA5
+
+8. Observation of the Data Download 
+	a.	Started 
