@@ -21,10 +21,12 @@ era5_folder.mkdir(exist_ok=True, parents=True)
 era5_temp_folder = era5_folder / "temp"
 era5_data_folder = era5_folder / "Data"
 era5_cities_folder = era5_folder / "Cities"
+era5_post_folder = era5_folder / "Postprocess"
 
 era5_temp_folder.mkdir(exist_ok=True, parents=True)
 era5_data_folder.mkdir(exist_ok=True, parents=True)
 era5_cities_folder.mkdir(exist_ok=True, parents=True)
+era5_post_folder.mkdir(exist_ok=True, parents=True)
 
 # Config file
 config_file = current_parent_dir / ".cdsapirc"

@@ -20,13 +20,22 @@
 clear; clc;
 
 % Directory
-base_dir = 'Era5/Cities';
-if ~isfolder(base_dir)
-    error('--Directory not found: %s. Please ensure the Era5/Cities folder exists.', base_dir);
+dir_base = 'Era5/Cities';
+dir_post = 'Era5/Postprocess';
+
+if ~isfolder(dir_base)
+    error('--Directory not found: %s. Please ensure the Era5/Cities folder exists.', dir_base);
 end
 
+if ~isfolder(dir_post)
+    mkdir path_post
+end
+
+path_base = fullfile(pwd,dir_base);
+path_post = fullfile(pwd,dir_post);
+
 % Find all relevant CSV files
-file_pattern = fullfile(base_dir, 'ERA_*.csv');
+file_pattern = fullfile(dir_base, 'ERA_*.csv');
 file_list = dir(file_pattern);
 file_pointers = table('Size', [length(file_list), 3], ...
                       'VariableTypes', {'string', 'double', 'string'}, ...
@@ -67,6 +76,12 @@ unique_cities = unique(file_pointers.City);
 for i = 1:length(unique_cities)
     current_city = unique_cities(i);
     fprintf('------ Processing City: %s\n', current_city);
+
+    % Make a dir for each forlder to store the post 
+    current_path_dir = fullfile(path_post,current_city);
+    if ~isfolder(current_path_dir)
+        mkdir(current_path_dir)
+    end
     
     % Filter the table to get all entries for the current city
     city_files = file_pointers(file_pointers.City == current_city, :);
@@ -76,7 +91,7 @@ for i = 1:length(unique_cities)
         current_year = city_files.Year(j);
         file_to_load = city_files.FilePath(j);
         
-        fprintf('-------> Loading Year: %d from file: %s\n', current_year, file_to_load);
+        % fprintf('-------> Loading Year: %d from file: %s\n', current_year, file_to_load);
         
         try
             current_temp_data{j} = readtable(file_to_load);
@@ -84,11 +99,48 @@ for i = 1:length(unique_cities)
             fprintf('-------> ERROR loading or processing file: %s\n', file_to_load);
             fprintf('-------> Error message: %s\n', ME.message);
         end % end try
-    end % end for j
+    end % end parfor j
 
     % Collapse the data struct
     current_big_table = vertcat(current_temp_data{:});
+
+    %% ==========================================================
+    %  Running Statistical Analysis Scripts
+    % ===========================================================
+
+    % % Kernel Density Plot
+    [k1,xk1] = ksdensity(current_big_table.t2m(current_big_table.month == 7));
+
+    f1 = figure('Visible', 'off');
+    f1.Position = [817 570 1183 668];
+    plot(xk1,k1);
+    current_title_ksden = sprintf('t2m for %s',current_city);
+    title(current_title_ksden)
+    xlabel('t2m (K)')
+    
+    % Save imag
+    path_outputfile = fullfile(current_path_dir,'kernel_density_full.png');
+    saveas(f1,path_outputfile)
+
+
+    % % Annual Level
+    results_annual = mil310stats(current_big_table, 't2m', current_city,groupBy='year',savePlotPath=path_post);
+
+    % output_file_name = sprintf('MIL310_summary_%s_year.csv',current_city);
+    % path_outputfile = fullfile(current_path_dir,output_file_name);
+    % writetable(results_annual, path_outputfile);
+    % fprintf('MIL-HDBK-310 yearly summary saved to %s\n', output_file_name);
+
+    % Month Level
+    results_monthly = mil310stats(current_big_table, 't2m', current_city,groupBy='month',savePlotPath=path_post);
+
+    output_file_name = sprintf('MIL310_summary_%s_month.csv',current_city);
+    path_outputfile = fullfile(current_path_dir,output_file_name);
+    writetable(results_monthly, path_outputfile);
+    fprintf('MIL-HDBK-310 monthly summary saved to %s\n', output_file_name);
+
 end % end for i
+
 
 fprintf('\n--- Analysis Complete ---\n');
 
