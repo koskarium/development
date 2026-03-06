@@ -109,7 +109,7 @@ for i = 1:length(unique_cities)
     % ===========================================================
 
     % % Kernel Density Plot
-    [k1,xk1] = ksdensity(current_big_table.t2m(current_big_table.month == 7));
+    [k1,xk1] = ksdensity(current_big_table.t2m);
 
     f1 = figure('Visible', 'off');
     f1.Position = [817 570 1183 668];
@@ -124,17 +124,44 @@ for i = 1:length(unique_cities)
 
 
     % % Annual Level
-    results_annual = mil310stats(current_big_table, 't2m', current_city,groupBy='year',savePlotPath=path_post);
+    results_annual = mil310stats(current_big_table, 't2m', current_city,groupBy='year',savePlotPath=path_post,exceedance_pct=[1, 5, 10, 90, 95, 99]);
 
-    % output_file_name = sprintf('MIL310_summary_%s_year.csv',current_city);
-    % path_outputfile = fullfile(current_path_dir,output_file_name);
-    % writetable(results_annual, path_outputfile);
-    % fprintf('MIL-HDBK-310 yearly summary saved to %s\n', output_file_name);
+    output_file_name = sprintf('MIL310_summary_%s_monthsinyear.csv',current_city);
+    path_outputfile = fullfile(current_path_dir,output_file_name);
+    writetable(results_annual, path_outputfile);
+    fprintf('MIL-HDBK-310 yearly summary saved to %s\n', output_file_name);
 
     % Month Level
-    results_monthly = mil310stats(current_big_table, 't2m', current_city,groupBy='month',savePlotPath=path_post);
+    results_monthly = mil310stats(current_big_table, 't2m', current_city,groupBy='month',savePlotPath=path_post,exceedance_pct=[1, 5, 10, 90, 95, 99]);
 
-    output_file_name = sprintf('MIL310_summary_%s_month.csv',current_city);
+    output_file_name = sprintf('MIL310_summary_%s_month_1hr.csv',current_city);
+    path_outputfile = fullfile(current_path_dir,output_file_name);
+    writetable(results_monthly, path_outputfile);
+    fprintf('MIL-HDBK-310 monthly summary saved to %s\n', output_file_name);
+
+    % Month Level - 6 hours ave
+    current_big_table.t2m_6 =  movmean(current_big_table.t2m,[5 0],Endpoints="fill");
+    results_monthly = mil310stats(current_big_table, 't2m_6', current_city,groupBy='month',savePlotPath=path_post,exceedance_pct=[1, 5, 10, 90, 95, 99]);
+
+    output_file_name = sprintf('MIL310_summary_%s_month_6hr.csv',current_city);
+    path_outputfile = fullfile(current_path_dir,output_file_name);
+    writetable(results_monthly, path_outputfile);
+    fprintf('MIL-HDBK-310 monthly summary saved to %s\n', output_file_name);
+
+    % Month Level - 24 hours ave
+    current_big_table.t2m_24 =  movmean(current_big_table.t2m,[23 0],Endpoints="fill");
+    results_monthly = mil310stats(current_big_table, 't2m_24', current_city,groupBy='month',savePlotPath=path_post,exceedance_pct=[1, 5, 10, 90, 95, 99]);
+
+    output_file_name = sprintf('MIL310_summary_%s_month_24hr.csv',current_city);
+    path_outputfile = fullfile(current_path_dir,output_file_name);
+    writetable(results_monthly, path_outputfile);
+    fprintf('MIL-HDBK-310 monthly summary saved to %s\n', output_file_name);
+
+    % Month Level - 72 hours ave
+    current_big_table.t2m_72 =  movmean(current_big_table.t2m,[71 0],Endpoints="fill");
+    results_monthly = mil310stats(current_big_table, 't2m_72', current_city,groupBy='month',savePlotPath=path_post,exceedance_pct=[1, 5, 10, 90, 95, 99]);
+
+    output_file_name = sprintf('MIL310_summary_%s_month_72hr.csv',current_city);
     path_outputfile = fullfile(current_path_dir,output_file_name);
     writetable(results_monthly, path_outputfile);
     fprintf('MIL-HDBK-310 monthly summary saved to %s\n', output_file_name);

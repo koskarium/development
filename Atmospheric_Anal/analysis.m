@@ -1,4 +1,4 @@
-file ='C:\Users\kevin.negron\Downloads\development-main\Atmospheric_Anal\Era5\temp\era5_2023.nc'
+file ='D:\Atmosphere\Era5\temp\era5_2023.nc'
 
 ncdisp(file);
 

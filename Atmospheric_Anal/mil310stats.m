@@ -14,8 +14,16 @@
 %       results - A table summarizing the exceedance_pct e.g. 1%, 5%, and 10% exceedance
 %                 temperatures and the month they occurred in for each year.
 
+% Author: Kevin O. Negron
+% Email: kevin.o.negron.civ@us.navy.mil
+% Matlab: R2023a Update 5 (9.14.0.2337262)
+% Version: 1.0.0
+% Initial: 2026.0215
+% Latest: 2026.0304
 
 % Notes
+% 2026/03/15 Made a function like vesion to be ran by an external script, Addded additional stat analysis with Kernel 
+%               Denisty modeling and expanded to allow options that will capture additional percentages  
 % 2026/02/15 The initial version
 
 
@@ -91,8 +99,6 @@ switch lower(groupBy)
         mon_names = arrayfun(@(x) sprintf('Month_%d', x), exceedance_pct, 'UniformOutput', false);
         result_var_names = [{'City', 'Year'}, val_names, mon_names];
 
-        %  Plot
-
     %%  Analysis by Month
     case 'month'
         months_list = 1:12;
@@ -106,12 +112,12 @@ switch lower(groupBy)
             
             % Calculate percentiles for the entire multi-year month dataset
             if ~isempty(month_data)
-                climatology_pct = prctile(month_data, percentile_values);
+                montly_pct = prctile(month_data, percentile_values);
             else
-                climatology_pct = NaN(1, num_pct);
+                montly_pct = NaN(1, num_pct);
             end
             
-            results_cell(i, :) = [ {city}, {m}, num2cell(climatology_pct) ];
+            results_cell(i, :) = [ {city}, {m}, num2cell(montly_pct) ];
         end
         
         % Dynamically create variable names
@@ -135,7 +141,7 @@ if savePlotPath ~= ""
             
             % Plotting for Year-by-Year Analysis
             years_to_plot = unique(data.(year_col));
-            for i = 1:length(years_to_plot)
+            parfor i = 1:length(years_to_plot)
                 yr = years_to_plot(i);
                 year_data = data(data.(year_col) == yr, :).(varstudy);
 
@@ -144,7 +150,7 @@ if savePlotPath ~= ""
                 end
 
                 fig = figure('Visible', 'off');
-                %fig.Position = [817 570 1183 668];
+                fig.Position = [817 570 1183 668];
                 [k1,xk1] = ksdensity(year_data);
                 plot(xk1,k1);
                 hold on;
