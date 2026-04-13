@@ -1,199 +1,154 @@
-# https://cds.climate.copernicus.eu/how-to-api
-
+# era5_stream_pipeline.py
+from pathlib import Path
 import xarray as xr
 import pandas as pd
 import os
-from pathlib import Path 
 import zipfile as ZF
-import dask
-import fsspec
 import cdsapi
 
 #########################
-###### Initialize  ######
+# Configuration
 #########################
 # Base directory (where script is run)
 # current_parent_dir = Path.cwd() would not be it if running from a folder that is not the current location where the .py is at 
 current_parent_dir = Path(__file__).resolve().parent
 
-
 # Create main folder
 era5_folder = current_parent_dir / "Era5"
-era5_folder.mkdir(exist_ok=True)
+era5_folder.mkdir(exist_ok=True, parents=True)
 
 # Create subfolders
 era5_temp_folder = era5_folder / "temp"
 era5_data_folder = era5_folder / "Data"
+era5_cities_folder = era5_folder / "Cities"
+era5_post_folder = era5_folder / "Postprocess"
 
-era5_temp_folder.mkdir(exist_ok=True)
-era5_data_folder.mkdir(exist_ok=True)
+era5_temp_folder.mkdir(exist_ok=True, parents=True)
+era5_data_folder.mkdir(exist_ok=True, parents=True)
+era5_cities_folder.mkdir(exist_ok=True, parents=True)
+era5_post_folder.mkdir(exist_ok=True, parents=True)
 
-
-#########################
-###### Config File ######
-#########################
 # Config file
 config_file = current_parent_dir / ".cdsapirc"
-
 if config_file.exists():
 	os.environ['CDSAPI_RC'] = str(config_file)
 else:
 	print('Error, config_file not found')
 	exit()
-	
-#########################
-###### ERA5 Request #####
-#########################
 
-dataset = "reanalysis-era5-single-levels"
-downloadformat = "unarchived" # "zip" or "unarchived"
-variables = ["2m_temperature"]
-#area = [35, -120, 33, -111]  # [North, West, South, East]
+# Since we are using verify: 0 so we can pypass SSL verification
+import urllib3
+from urllib3.exceptions import InsecureRequestWarning
+urllib3.disable_warnings(InsecureRequestWarning)
 
-start_year = 2021
-end_year = 2023  
-# Build list of years
-if start_year == end_year:
-    years_to_download = [str(start_year)]
-else:
-    years_to_download = [str(y) for y in range(start_year, end_year + 1)]
+# Cities
+cities_file = current_parent_dir / "cities.txt"
+cities = pd.read_csv(cities_file, header=None, names=["city","latitude","longitude"], skiprows=1)
+cities["latitude"] = cities["latitude"].astype(float)
+cities["longitude"] = cities["longitude"].astype(float)
+cities["city"] = cities["city"].str.strip()
 
-print("Years to download:", years_to_download)
+# ERA5 Config
+dataset = "reanalysis-era5-pressure-levels"
+variables = ["temperature"]
+download_format = "unarchived"  # "zip" or "unarchived"
 
-months = [f"{m:02d}" for m in range(1, 13)]
-days = [f"{d:02d}" for d in range(1, 32)]
+start_year = 1940
+end_year = 2025
+years_to_download = [y for y in range(start_year, end_year+1)]
+
+months = [f"{m:02d}" for m in range(1,13)]
+days = [f"{d:02d}" for d in range(1,32)]
 hours = [f"{h:02d}:00" for h in range(24)]
 
 client = cdsapi.Client()
 
-print(months)
-
-########################
-###### Data Pull #######
-########################
-
-for year in years_to_download:
-
-    print(f"\n===== Processing year {year} =====")
-
-    # Decide file extension based on format
-    if downloadformat.lower() == "zip":
-        output_file = era5_temp_folder / f"era5_{year}.zip"
-        cds_download_format = "zip"
-
-    elif downloadformat.lower() == "unarchived":
-        output_file = era5_temp_folder / f"era5_{year}.nc"
-        cds_download_format = "unarchived"   # CDS API keyword
-
-    else:
-        print("Invalid downloadformat. Use 'zip' or 'unarchived'.")
-        continue
-
-    # Skip if already downloaded
+#########################
+# Helper: download and extract
+#########################
+def download_year(year):
+    print(f"\nDownloading year {year}...")
+    output_file = era5_temp_folder / f"era5_{year}_press_1.nc"
+    
     if output_file.exists():
-        print(f"{output_file.name} already exists. Skipping.")
-        continue
-
-    # Prepare request
+        print(f"{output_file.name} already exists. Skipping download.")
+        return output_file
+    
     request = {
         "product_type": ["reanalysis"],
         "variable": variables,
-        "year": [year],
+        "year": [str(year)],
         "month": months,
         "day": days,
         "time": hours,
         "data_format": "netcdf",
-        "download_format": cds_download_format,
-        # "area": area  # Uncomment if needed
+        "pressure_level": ["1"],
+        "download_format": download_format
     }
-
-    # Download
+    
     try:
-        print(f"Downloading {year} as {downloadformat}...")
         client.retrieve(dataset, request).download(str(output_file))
-        print(f"Saved -> {output_file.name}")
-
+        print(f"Downloaded {output_file.name}")
+        return output_file
     except Exception as e:
         print(f"Download failed for {year}: {e}")
-        continue
+        return None
 
+def process_nc(nc_file):
+    print(f"\nProcessing {nc_file.name}")
+    ds = xr.open_dataset(nc_file)
+    
+    # Rename valid_time -> time
+    if "valid_time" in ds.coords:
+        ds = ds.rename({"valid_time":"time"})
+    
+    for _, row in cities.iterrows():
+        city = row["city"]
+        lat = row["latitude"]
+        lon = row["longitude"]
+        city_clean = city.replace(" ","")
+        # Convert negative longitude to 0-360
+        lon = lon if lon >= 0 else 360 + lon
 
-## Debugg
-# print("Working path:", current_parent_dir)
-# print("Temp folder path:", era5_temp_folder)
-# print("Exists?", era5_temp_folder.exists())
-# print("Files inside:", list(era5_temp_folder.iterdir()))
-
-
-########################
-#### ZIP Extraction ####
-########################
-
-# Process all files in temp folder
-temp_files = list(era5_temp_folder.iterdir())
-for file_path in temp_files:
-    if file_path.suffix == ".zip":
-        # Process zip
-        print(f"\nProcessing ZIP: {file_path.name}")
         try:
-            with ZF.ZipFile(file_path, 'r') as z:
-                nc_files = [f for f in z.namelist() if f.endswith('.nc')]
-
-                if not nc_files:
-                    print("-- No .nc files in zip. Possibly embargoed. Skipping.")
-                    continue
-
-                for idx, ncfile in enumerate(nc_files):
-                    extracted_path = era5_data_folder / ncfile
-
-                    if extracted_path.exists():
-                        print(f"---- {ncfile} already exists. Skipping extraction.")
-                        continue
-
-                    z.extract(ncfile, era5_data_folder)
-
-                    # Rename extracted file
-                    try:
-                        year_in_name = file_path.stem.split("_")[1]
-                    except IndexError:
-                        year_in_name = "unknown_year"
-
-                    variable_name = variables[idx] if idx < len(variables) else f"var{idx+1}"
-                    new_name = f"ERA5_{year_in_name}_{variable_name}.nc"
-                    new_path = era5_data_folder / new_name
-
-                    extracted_path.rename(new_path)
-                    print(f"---- Renamed {ncfile} -> {new_name}")
-
-        except ZF.BadZipFile:
-            print(f"-- Could not open zip: {file_path.name}")
+            city_data = ds.interp(latitude=lat, longitude=lon, method="linear")
         except Exception as e:
-            print(f"-- Exception during extraction: {e}")
+            print(f"Skipping {city}: interpolation error {e}")
+            continue
 
-    elif file_path.suffix == ".nc":
-        # Direct NetCDF file
-        print(f"\nProcessing direct NC: {file_path.name}")
-        try:
-            # Determine year from file name
-            try:
-                year_in_name = file_path.stem.split("_")[1]
-            except IndexError:
-                year_in_name = "unknown_year"
+        df_city = city_data["t2m"].to_dataframe().reset_index()
+        df_city["date"] = pd.to_datetime(df_city["time"]).dt.date
+        df_city["hour"] = pd.to_datetime(df_city["time"]).dt.hour
+        df_city["day"] = pd.to_datetime(df_city["time"]).dt.day
+        df_city["month"] = pd.to_datetime(df_city["time"]).dt.month
+        df_city["year"] = pd.to_datetime(df_city["time"]).dt.year
+        df_city_out = df_city[["year","month","day","hour","t2m"]]
 
-            # Use variable from request (single variable assumed)
-            variable_name = variables[0] if len(variables) == 1 else "var1"
-            new_name = f"ERA5_{year_in_name}_{variable_name}.nc"
-            new_path = era5_data_folder / new_name
-
-            if new_path.exists():
-                print(f"{new_name} already exists. Skipping.")
+        for year_val, df_year in df_city_out.groupby("year"):
+            output_csv = era5_cities_folder / f"ERA_{city_clean}_{year_val}.csv"
+            if output_csv.exists():
+                print(f"{output_csv.name} exists. Skipping.")
                 continue
+            df_year.to_csv(output_csv, index=False)
+            print(f"Saved {output_csv.name}")
+    
+    # Remove NC after processing to save space
+    # ds.close()
+    # del ds
+    # gc.collect()
+    # nc_file.unlink()
+    # print(f"Deleted {nc_file.name} after processing.")
 
-            file_path.rename(new_path)
-            print(f"Moved and renamed -> {new_name}")
+#########################
+# Main loop: download + process with 2-year queue
+#########################
+queue_limit = 2
+download_queue = []
 
-        except Exception as e:
-            print(f"Error renaming {file_path.name}: {e}")
+for year in years_to_download:
+    # Download the year
+    nc_path = download_year(year)
+    if nc_path is not None:
+        download_queue.append(nc_path)
+    
 
-    else:
-        print(f"Unknown file type: {file_path.name}")
