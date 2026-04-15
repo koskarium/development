@@ -1,0 +1,1972 @@
+
+<!-- saved from url=(0041)http://www.braeunig.us/space/atmmodel.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Basic of Space Flight: Atmospheric Models</title>
+<meta name="description" content="Standard and reference atmospheric models.">
+<meta name="keywords" content="atmosphere, atmospheric, troposphere, stratosphere, mesosphere, thermosphere, exosphere, earth, mars, venus, temperature, pressure, density">
+<!--<base target="_self">--><base href="." target="_self">
+</head>
+
+<body background="./Basic of Space Flight_ Atmospheric Models_files/paper.jpg" bgcolor="#E6E5E1" text="#000000" link="#0000FF" vlink="#880088" topmargin="20" leftmargin="20">
+
+<font face="Verdana" size="2">
+
+<div align="center">
+  <center>
+  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+    <tbody><tr>
+      <td width="340">
+      <img border="2" src="./Basic of Space Flight_ Atmospheric Models_files/logo-300x150.jpg" width="300" height="150"></td>
+      <td valign="bottom"><font size="6">ATMOSPHERIC MODELS</font></td>
+    </tr>
+  </tbody></table>
+  </center>
+</div>
+
+<p></p><hr size="5"><p></p>
+
+<list><ul>
+<li><a href="http://www.braeunig.us/space/atmmodel.htm#structure">Atmospheric Structure</a>
+</li><li><a href="http://www.braeunig.us/space/atmmodel.htm#equations">Basic Assumptions and Equations</a>
+</li><li><a href="http://www.braeunig.us/space/atmmodel.htm#modeling">Atmospheric Modeling</a>
+</li><li><a href="http://www.braeunig.us/space/atmmodel.htm#USSA1976">U.S. Standard Atmosphere</a>
+</li><li><a href="http://www.braeunig.us/space/atmmodel.htm#refatmos">Reference Atmospheres</a>
+</li><li><a href="http://www.braeunig.us/space/atmmodel.htm#mars">Atmosphere of Mars</a>
+</li><li><a href="http://www.braeunig.us/space/atmmodel.htm#venus">Atmosphere of Venus</a>
+</li></ul></list>
+
+<p></p><hr size="5"><p></p>
+
+<p>For flight within an atmosphere it is necessary to know the atmospheric temperature, pressure and density at the wide range of altitudes that a vehicle might operate. This is done by developing a model of the atmosphere that represents either mean conditions or conditions specific to a particular time and place.</p>
+
+<p>Considering that this web site is titled "Rocket &amp; Space Technology", it is assumed that our interest in atmospheric modeling is to analyze or predict the flight of a rocket or missile, capsule, or spacecraft through the atmosphere of Earth or another planet. For launch and reentry, the lower and middle atmosphere is of paramount importance, as nearly all drag occurs at these altitudes (for Earth, below about 90 km). And for satellites and spacecraft in low orbit, we must have a model of the atmosphere hundreds of kilometers above the surface to predict the long-term effects that will result in eventual orbit decay. For altitudes between the middle atmosphere and low orbit, atmospheric effects are minor for the case of launch and/or controlled reentry, because the air is thin and the exposure is brief. However, in the case of a decaying orbit or an aerobraking maneuver, a good model of this layer may be necessary.</p>
+
+<p><a name="structure">
+<font size="+1">Atmospheric Structure</font></a></p><a name="structure">
+
+<p>The atmosphere of Earth is a layer of gases surrounding the planet and retained by Earth's gravity. In general, air pressure and density decrease with altitude. However, temperature has a more complicated profile with altitude and may remain relatively constant or even increase with altitude in some regions. Because the general pattern of the temperature-altitude profile is constant and recognizable, the temperature behavior provides a useful metric to distinguish between atmospheric layers. In this way, Earth's atmosphere can be divided into five main layers. From lowest to highest, these layers are: troposphere, stratosphere, mesosphere, thermosphere and exosphere.</p>
+
+<p><b>Troposphere:</b> The troposphere begins at Earth's surface and extends to the <i>tropopause</i> at an average height of about 12 km, although this altitude varies from about 9 km at the poles and 17 km at the equator, with some variation due to weather. The tropopause is mostly heated by transfer of energy from the surface, so on average the lowest part is warmest and temperature decreases with altitude. The troposphere contains roughly 80% of the mass of the atmosphere and basically all weather-associated cloud types. The tropopause is the boundary between the troposphere and stratosphere.</p>
+
+<p><b>Stratosphere:</b> The stratosphere extends from the tropopause at an altitude of about 12 km above sea level to the <i>stratopause</i> at an altitude of 50 to 55 km. The atmospheric pressure at the top of the stratosphere is roughly 1/1000 the pressure at sea level. Temperature increases with height due to increased absorption of ultraviolet radiation by the ozone layer, which restricts turbulence and mixing. Although the temperature may be -60 <sup>o</sup>C at the tropopause, the top of the stratosphere is much warmer and may be near freezing.</p>
+
+<p><b>Mesosphere:</b> The mesosphere extends from the stratopause at an altitude of about 50 km to the <i>mesopause</i> at 80-85 km above sea level. It is the layer where most meteors burn up entering the atmosphere. Temperature decreases with height in the mesosphere. The mesopause, the temperature minimum that marks the top of the mesosphere, is the coldest place on Earth with an average temperature of about -85 <sup>o</sup>C, and may drop to -100 <sup>o</sup>C.</p>
+
+<p><b>Thermosphere:</b> Temperature increases with height in the thermosphere from the mesopause at an altitude of about 80 km up to the <i>thermopause</i>. The altitude of the thermopause averages 700 km but varies with solar activity, ranging from about 500-1000 km. The temperature inversion is a result of absorption of highly energetic solar radiation. Temperatures are highly dependent on solar activity and can rise to 1500 <sup>o</sup>C, though the gas molecules are so far apart that temperature in the usual sense is not well defined.</p> 
+
+<p><b>Exosphere:</b> The exosphere is the outermost layer of Earth's atmosphere, ranging from the thermopause, or <i>exobase</i>, to thousands of kilometers into space. It is mainly composed of hydrogen, helium and some heavier molecules such as nitrogen, oxygen and carbon dioxide closer to the exobase. The particle density is too low to behave as a gas. Temperatures are constant with height and are dependent on solar activity, ranging from about 500-2000 K.</p>
+
+<p>The <b>turbopause</b> marks the altitude in Earth's atmosphere below which turbulent mixing dominates. The region below the turbopause is known as the <i>homosphere</i>, where the chemical constituents are well mixed and the composition of the atmosphere remains constant. The region above the turbopause is the <i>heterosphere</i>, where molecular diffusion dominates and the residual atmospheric gases sort into strata according to molecular mass. The turbopause lies near the mesopause at an altitude of roughly 110 km.</p>
+
+<p></p><center>
+<table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="3"><font size="2"><b>Table 1</b><br>Molecular weights and assumed fractional-<br>volume composition of sea-level dry air</font></td>
+  </tr>
+  <tr align="center">
+    <td width="30%"><font size="2">Gas species</font></td>
+    <td width="35%"><font size="2">Molecular weight<br>M<sub>i</sub> (kg/kmol)</font></td>
+    <td width="35%"><font size="2">Fractional volume<br>F<sub>i</sub> (dimensionless)</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">N<sub>2</sub></font></td>
+    <td><font size="2">28.0134</font></td>
+    <td><font size="2">0.78084</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">O<sub>2</sub></font></td>
+    <td><font size="2">31.9988</font></td>
+    <td><font size="2">0.209476</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Ar</font></td>
+    <td><font size="2">39.948</font></td>
+    <td><font size="2">0.00934</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">CO<sub>2</sub></font></td>
+    <td><font size="2">44.00995</font></td>
+    <td><font size="2">0.000314</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Ne</font></td>
+    <td><font size="2">20.183</font></td>
+    <td><font size="2">0.00001818</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">He</font></td>
+    <td><font size="2">4.0026</font></td>
+    <td><font size="2">0.00000524</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Kr</font></td>
+    <td><font size="2">83.80</font></td>
+    <td><font size="2">0.00000114</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Xe</font></td>
+    <td><font size="2">131.30</font></td>
+    <td><font size="2">0.000000087</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">CH<sub>4</sub></font></td>
+    <td><font size="2">16.04303</font></td>
+    <td><font size="2">0.000002</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">H<sub>2</sub></font></td>
+    <td><font size="2">2.01594</font></td>
+    <td><font size="2">0.0000005</font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+</a><p><a name="structure"></a><a name="equations">
+<font size="+1">Basic Assumptions and Equations</font></a></p><a name="equations">
+
+<p><i>Ideal Gas Law</i></p>
+
+<p>The gases that make up a planetary atmosphere can be treated like <i>ideal gases</i>, meaning that they obey the <i>ideal gas law</i> (also called <i>perfect gas law</i>). The ideal gas law is the equation of state of a hypothetical ideal gas. It is a good approximation of the behavior of many gases under many conditions. The common form of the ideal gas law is,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(1)</i></font></td>
+<td><font size="2">P × V = n × R* × T</font></td></tr></tbody></table></p>
+
+<p>where <i>P</i> is the absolute pressure of the gas (Pa), <i>V</i> is the volume of the gas (m<sup>3</sup>), <i>n</i> is the amount of gas (kmol), <i>T</i> is the absolute temperature of the gas (K), and <i>R*</i> is the universal gas constant (8314.4621 J/kmol-K).</p>
+
+<p>Additional forms of the equation include,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(2)</i></font></td>
+<td><font size="2">P = &#961; × R* × T / M</font></td></tr></tbody></table></p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(3)</i></font></td>
+<td><font size="2">P = N × R* × T / N<sub>A</sub></font></td></tr></tbody></table></p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(4)</i></font></td>
+<td><font size="2">P = N × k × T</font></td></tr></tbody></table></p>
+
+<p>And from equations (2) and (3) we find,
+ 
+</p><p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(5)</i></font></td>
+<td><font size="2">&#961; = N × M / N<sub>A</sub></font></td></tr></tbody></table></p>
+
+<p>where <i>&#961;</i> is the density of the gas (kg/m<sup>3</sup>), <i>M</i> is the mean molecular weight (kg/kmol), <i>N</i> is the total number density (m<sup>-3</sup>), <i>N<sub>A</sub></i> is the Avagadro constant (6.0221413×10<sup>26</sup> kmol<sup>-1</sup>), and <i>k</i> is the Boltzmann constant (1.3806488×10<sup>-23</sup> J/K).</p>
+
+<p>Note that in equations containing both <i>R*</i> and <i>M</i>, and where <i>M</i> is constant, we may sometimes substitute the specific gas constant <i>R</i>, where <i>R = R*/M</i>.</p>
+
+<p><i>Hydrostatic Equation</i></p>
+
+<p>The hydrostatic equation states that whenever there is no vertical motion, the difference in pressure <i>dP</i> between two levels <i>dz</i> is caused by the weight of the layer of air. Mathematically, this statement can be written as,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(6)</i></font></td>
+<td><font size="2">dP = –&#961; × g × dz</font></td></tr></tbody></table></p>
+
+<p>where <i>g</i> is the height-dependent acceleration of gravity. The inverse-square law of gravitation provides an expression for <i>g</i> as a function of altitude,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(7)</i></font></td>
+<td><font size="2">g = g<sub>o</sub> × [ r<sub>o</sub> / (r<sub>o</sub> + z) ]<sup>2</sup></font></td></tr></tbody></table></p>
+
+<p>where <i>g<sub>o</sub></i> is the sea-level value of the acceleration of gravity (9.80665 m/s<sup>2</sup>) and <i>r<sub>o</sub></i> is the effective radius of Earth at a specific latitude.</p>
+
+<p>Using equations (2) and (6), the hydrostatic equation can be written as,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(8)</i></font></td>
+<td><font size="2">dP = –(P × M / (R* × T)) × g × dz</font></td></tr></tbody></table></p>
+
+<p>Integrating from level z<sub>1</sub> to level z<sub>2</sub> results in the hypsometric equation,
+
+</p><p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(9)</i></font></td>
+<td><font size="2">P<sub>2</sub> = P<sub>1</sub> × e<sup> [ –g × M / (R* × T) × (z<sub>2</sub> – z<sub>1</sub>) ]</sup></font></td></tr></tbody></table></p>
+
+<p>If we define scale height <i>H</i> as follows,
+
+</p><p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(10)</i></font></td>
+<td><font size="2">H = R* × T / (M × g)</font></td></tr></tbody></table></p>
+
+<p>equation (9) then becomes,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(11)</i></font></td>
+<td><font size="2">P<sub>2</sub> = P<sub>1</sub> × e<sup> [ –(z<sub>2</sub> – z<sub>1</sub>) / H ]</sup></font></td></tr></tbody></table></p>
+
+<p><i>Geopotential Height</i></p>
+
+<p>It has been customary in standard-atmosphere calculations to effectively eliminate the variable portion of the acceleration of gravity by the transformation of geometric height <i>z</i> to geopotential height <i>h</i>, thereby simplifying both integration of the hydrostatic equation and the resulting expression for computing pressure. The relationship between geometric and geopotential altitude depends upon the concept of gravity.</p>
+
+<p>The unit of measurement of geopotential is the standard geopotential meter (m'), which represents the work done by lifting a unit mass 1 geometric meter through a region in which the acceleration of gravity is uniformly 9.80665 m/s<sup>2</sup>. The geopotential of any point with respect to mean sea level (assumed zero potential), expressed in geopotential meters, is called geopotential altitude. Therefore, geopotential altitude <i>h</i> is given by,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(12)</i></font></td>
+<td><img src="./Basic of Space Flight_ Atmospheric Models_files/eqS3-1.gif" width="140" height="32"></td></tr></tbody></table></p>
+
+<p>and is expressed in geopotential meters (m') when the unit geopotential <i>g<sub>o</sub>'</i> is set equal to 9.80665 m<sup>2</sup>/(s<sup>2</sup>m'). With geopotential altitude defined as above, the differential may be expressed as,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(13)</i></font></td>
+<td><font size="2">g<sub>o</sub>' × dh = g × dz</font></td></tr></tbody></table></p>
+
+<p>This expression is used in the hydrostatic equation to reduce the number of variables prior to its integration, thereby leading to an expression for computing pressure as a function of geopotential height.</p>
+
+<p>The relationship between geopotential height <i>h</i> and geometric height <i>z</i> are given by the following expressions,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(14)</i></font></td>
+<td><font size="2">h = r<sub>o</sub> × z / (r<sub>o</sub> + z)</font></td></tr></tbody></table></p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(15)</i></font></td>
+<td><font size="2">z = r<sub>o</sub> × h / (r<sub>o</sub> – h)</font></td></tr></tbody></table></p>
+
+<p><i>Molecular-Scale Temperature</i></p>
+
+<p>The molecular-scale temperature <i>T<sub>M</sub></i> at a point is defined as the product of the kinetic temperature <i>T</i> and the ratio <i>M/M<sub>o</sub></i>, where <i>M</i> is the molecular weight of air at that point, and <i>M<sub>o</sub></i> is the sea-level value of <i>M</i>. Analytically,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(16)</i></font></td>
+<td><font size="2">T<sub>M</sub> = T × M<sub>o</sub> / M</font></td></tr></tbody></table></p>
+
+<p>The principle virtue of the parameter <i>T<sub>M</sub></i> is that it combines the variable portion of <i>M</i> with the variable <i>T</i> into a single new variable, in a manner somewhat similar to the combining of the variable portion of <i>g</i> with <i>z</i> to form the new variable <i>h</i>. When both of these transformations are introduced into the hydrostatic equation, and when <i>T<sub>M</sub></i> is expressed as a linear function of <i>h</i>, the resulting differential equation has an exact integral. Under these conditions, the computation of <i>P</i> versus <i>h</i> becomes a simple process not requiring numerical integration.</p>
+
+<p><i>Hydrostatic equation in terms of h and T<sub>M</sub></i></p>
+
+<p>With geopotential height <i>h</i> and molecular-scale temperature <i>T<sub>M</sub></i> defined, equations (10) and (11) are re-written as,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(17)</i></font></td>
+<td><font size="2">H = R* × T<sub>M</sub> / (M<sub>o</sub> × g<sub>o</sub>')</font></td></tr></tbody></table></p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(18)</i></font></td>
+<td><font size="2">P<sub>2</sub> = P<sub>1</sub> × e<sup> [ –(h<sub>2</sub> – h<sub>1</sub>) / H ]</sup></font></td></tr></tbody></table></p>
+
+</a><p><a name="equations"></a><a name="modeling">
+<font size="+1">Atmospheric Modeling</font></a></p><a name="modeling">
+
+<p><b>Part I — Homosphere</b></p>
+
+<p><i>Molecular Weight</i></p>
+
+<p>In that part of the atmosphere below the turbopause, mixing is dominant and the effect of diffusion and photochemical processes upon mean molecular weight is negligible. In this region the fractional composition of each species is assumed to remain constant and mean molecular weight <i>M</i> remains constant at its sea-level value <i>M<sub>o</sub></i>.</p>
+
+<p><i>Temperature</i></p>
+
+<p>Traditionally, standard atmospheres have defined temperature as a linear function of height to eliminate the need for numerical integration in the computation of pressure versus height. The function <i>T<sub>M</sub></i> versus <i>h</i> is expressed as a series of successive linear equations, the general form of which is,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(19)</i></font></td>
+<td><font size="2">T<sub>M</sub> = T<sub>M,b</sub> + L<sub>M,b</sub> × (h – h<sub>b</sub>)</font></td></tr></tbody></table></p>
+
+<p>where <i>L<sub>M</sub></i> is the molecular-scale temperature gradient, also called lapse rate. The value of subscript <i>b</i> refers to each of the successive layers.</p>
+
+<p>Let's consider an example:</p>
+
+<p></p><center>
+<table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="3"><font size="2"><b>Table 2</b><br>The defined reference levels and gradients of<br> the linearly segmented temperature-height profile<br>from the surface to 50 geometric kilometers</font></td>
+  </tr>
+  <tr align="center">
+    <td width="30%"><font size="2">Subscript<br>b</font></td>
+    <td width="35%"><font size="2">Geopotential<br>height, h<sub>b</sub><br>(km')</font></td>
+    <td width="35%"><font size="2">Molecular-scale<br>temperature<br>gradient, L<sub>M,b</sub><br>(K/km')</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">0</font></td>
+    <td><font size="2">0</font></td>
+    <td><font size="2">–6.0</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">1</font></td>
+    <td><font size="2">12</font></td>
+    <td><font size="2">0.0</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">2</font></td>
+    <td><font size="2">24</font></td>
+    <td><font size="2">+2.0</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">3</font></td>
+    <td><font size="2">50</font></td>
+    <td><font size="2"></font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p>where we have three layers — <i>h<sub>0</sub></i> = 0 to <i>h<sub>1</sub></i> = 12 km, <i>h<sub>1</sub></i> = 12 km to <i>h<sub>2</sub></i> = 24 km, and <i>h<sub>2</sub></i> = 24 km to <i>h<sub>3</sub></i> = 50 km.</p>
+
+<p>The value of <i>T<sub>M,b</sub></i> for the first layer (<i>b</i> = 0) is equal to <i>T<sub>o</sub></i>, the sea-level value of <i>T</i>, since at this level <i>M = M<sub>o</sub></i>. With this value of <i>T<sub>M,b</sub></i> defined, and the set of values of <i>h<sub>b</sub></i> and the corresponding values of <i>L<sub>M,b</sub></i> defined in Table 2, the function <i>T<sub>M</sub></i> of <i>h</i> is completely defined from the surface to 50 km'.</p>
+
+<p>Suppose we define <i>T<sub>o</sub></i> = 290 K, then for <i>b</i> =0 we have,
+
+</p><p></p><dd>h<sub>0</sub> = 0 km', &nbsp; L<sub>M,0</sub> = –6.0 K/km', &nbsp; T<sub>M,0</sub> = 290 K</dd><p></p> 
+
+<p>therefore,</p>
+
+<p></p><dd>T<sub>M</sub> = 290 – 6.0 × (h – 0) = 290 – 6.0 × h</dd><p></p>
+
+<p>We now calculate the value of <i>T<sub>M,b</sub></i> for the second layer (<i>b</i> = 1),</p>
+
+<p></p><dd>T<sub>M,1</sub> = 290 – 6.0 × 12 = 218 K</dd><p></p>
+
+<p>For the second layer, we have</p>
+
+<p></p><dd>h<sub>1</sub> = 12 km', &nbsp; L<sub>M,1</sub> = 0.0 K/km', &nbsp; T<sub>M,1</sub> = 218 K</dd><p></p>
+
+<p></p><dd>T<sub>M</sub> = 218 + 0 × (H – 12) = 218 K</dd><p></p>
+
+<p>And for the third layer (<i>b</i> = 2), we have</p>
+
+<p></p><dd>h<sub>2</sub> = 24 km', &nbsp; L<sub>M,2</sub> = +2.0 K/km', &nbsp; T<sub>M,2</sub> = 218 K</dd><p></p>
+
+<p></p><dd>T<sub>M</sub> = 218 + 2 × (h – 24) = 170 + 2 × h</dd><p></p>
+
+<p><i>Pressure</i></p>
+
+<p>Within the region of homogeneity, two different equations are used for computing pressure, in which pressure is a function of geopotential altitude. One equation is for the case when <i>L<sub>M,b</sub></i> for a particular layer is not equal to zero, and the other when the value <i>L<sub>M,b</sub></i> is zero. The first of these two expressions is,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(20)</i></font></td>
+<td><font size="2">P = P<sub>b</sub> × [ T<sub>M,b</sub> / (T<sub>M,b</sub> + L<sub>M,b</sub> × (h – h<sub>b</sub>)) ] <sup>(g<sub>o</sub>' × M<sub>o</sub>/(R* × L<sub>M,b</sub>))</sup></font></td></tr></tbody></table></p>
+
+<p>and the latter is,</p> 
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(21)</i></font></td>
+<td><font size="2">P = P<sub>b</sub> × e <sup>[ –g<sub>o</sub>' × M<sub>o</sub> × (h – h<sub>b</sub>) / (R* × T<sub>M,b</sub>) ]</sup></font></td></tr></tbody></table></p>
+
+<p>In these equations <i>g<sub>o</sub>'</i>, <i>M<sub>o</sub></i>, and <i>R*</i> are each defined single-valued constants, while <i>L<sub>M,b</sub></i> and <i>h<sub>b</sub></i> are each defined multi-valued constants in accordance with the value of <i>b</i>. The quantity <i>T<sub>M,b</sub></i> is a multi-valued constant dependent on <i>L<sub>M,b</sub></i> and <i>h<sub>b</sub></i>. The reference-level value of <i>P<sub>b</sub></i> for <i>b</i> = 0 is the defined sea-level value <i>P<sub>o</sub></i>. Values of <i>P<sub>b</sub></i> are obtained from the application of the appropriate equation for the case when <i>h</i> = <i>h<sub>b+1</sub></i>.</p>
+
+<p>These two equations yield the pressure for any desired geopotential altitude from sea level to the maximum <i>h<sub>b</sub></i>. Pressures for negative values of <i>h</i> may also be computed from the first equation when subscript <i>b</i> is zero.</p>
+
+<p>Using the values given in Table 2, let's now consider an example.</p>
+
+<p>First we define our single-valued constants:</p>
+
+<p></p><dd>R* = 0.0083144621 kg(km/s)<sup>2</sup>/kmol-K
+<br></dd><dd>g<sub>o</sub>' = 0.00980665 (km/s)<sup>2</sup>/km'
+<br></dd><dd>M<sub>o</sub> = 28.9644 kg/kmol
+<br></dd><dd>P<sub>o</sub> = 101,325 Pa</dd><p></p>
+
+<p>Note that the unusual units of <i>R*</i> and <i>g<sub>o</sub>'</i> is because we're expressing <i>h</i> in units of km' rather than m'. 
+
+</p><p>For the first layer (<i>b</i> = 0) we have,</p>
+
+<p></p><dd>H<sub>0</sub> = 0 km', &nbsp; L<sub>M,0</sub> = –6.0 K/km', &nbsp; T<sub>M,0</sub> = 290 K, &nbsp; P<sub>0</sub> = 101325 Pa</dd><p></p>
+
+<p>Since <i>L<sub>M,0</sub></i> is not equal to zero, we use equation (20),</p>
+
+<p></p><dd>P = 101325 × [ 290 / (290 – 6.0 × (h – 0) ] <sup>(0.00980665 × 28.9644/(0.0083144621 × –6.0))</sup>
+<br></dd><dd>P = 101325 × [ 290 / (290 – 6.0 × h) ] <sup>(–5.69377)</sup></dd><p></p>
+
+<p>For the second layer (<i>b</i> = 1) we have,</p>
+
+<p></p><dd>h<sub>1</sub> = 12 km', &nbsp; L<sub>M,1</sub> = 0.0 K/km', &nbsp; T<sub>M,1</sub> = 218 K</dd><p></p>
+
+<p></p><dd>P<sub>1</sub> = 101325 × [ 290 / (290 – 6.0 × 12) ] <sup>(–5.69377)</sup> = 19954 Pa</dd><p></p>
+
+<p>Since <i>L<sub>M,1</sub></i> is equal to zero, we use equation (21),</p>
+
+<p></p><dd>P = 19954 × EXP[ –0.00980665 × 28.9644 × (h – 12) / (0.0083144621 × 218) ] 
+<br></dd><dd>P = 19954 × EXP[ –34.1626 × (h – 12) / 218 ]</dd><p></p>
+
+<p>And for the third layer (<i>b</i> = 2) we have,</p>
+
+<p></p><dd>h<sub>2</sub> = 24 km', &nbsp; L<sub>M,2</sub> = +2.0 K/km', &nbsp; T<sub>M,2</sub> = 218 K</dd><p></p>
+
+<p></p><dd>P<sub>2</sub> = 19954 × EXP[ –34.1626 × (24 – 12) / 218 ] = 3043 Pa</dd><p></p>
+
+<p></p><dd>P = 3043 × [ 218 / (218 + 2.0 × (h – 24) ] <sup>(0.00980665 × 28.9644/(0.0083144621 × 2.0))</sup> 
+<br></dd><dd>P = 3043 × [ 218 / (170 + 2.0 × h) ] <sup>(17.0813)</sup></dd><p></p>
+
+<p><i>Mass Density</i></p>
+
+<p>Having computed temperature and pressure, mass density can be found using the ideal gas law,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(22)</i></font></td>
+<td><font size="2">&#961; = P × M<sub>o</sub> / (R* × T<sub>M</sub>)</font></td></tr></tbody></table></p>
+
+<p><i>Speed of Sound</i></p>
+
+<p>The speed of sound <i>C</i> is calculated using the equation,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(23)</i></font></td>
+<td><font size="2">C = (&#947; × R* × T<sub>M</sub> / M<sub>o</sub>)<sup>1/2</sup></font></td></tr></tbody></table></p>
+
+<p>where &#947; is the specific heat ratio. Specific heat ratio is the ratio of constant-pressure to constant-volume specific heat, C<sub>p</sub>/C<sub>v</sub>. Specific heat is a function of temperature; however, the specific heats of elemental gases (such as N<sub>2</sub>, O<sub>2</sub> and Ar) vary little with temperature. Since these gases dominate Earth's atmosphere, &#947; for air can be assumed constant, where &#947; = 1.400 (dimensionless).</p> 
+
+<p><b>Part II — Heterosphere</b></p>
+
+<p><i>Molecular Weight</i></p>
+
+<p>In that part of the atmosphere above the turbopause, mean molecular weight decreases with increasing altitude. Two processes are primarily responsible for this: the first is the dissociation of molecular oxygen, and the second is diffusive separation, which becomes increasingly important relative to mixing in this height region.</p>
+
+<p>The mean molecular weight <i>M</i> of a mixture of gases is,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(24)</i></font></td>
+<td><font size="2">M = &#931;(n<sub>i</sub> × M<sub>i</sub>) / &#931;n<sub>i</sub> = &#931;(F<sub>i</sub> × M<sub>i</sub>)</font></td></tr></tbody></table>
+
+<br><table border="0"><tbody><tr><td width="75"><font size="2"><i>where</i></font></td>
+<td><font size="2">F<sub>i</sub> = n<sub>i</sub> / &#931;n<sub>i</sub></font></td></tr></tbody></table></p>
+
+<p>where <i>n<sub>i</sub></i> and <i>M<sub>i</sub></i> are the number density and defined molecular weight, respectively, of the individual gas species. Alternatively, <i>F<sub>i</sub></i> is the fractional volume of the individual gas species.</p>
+
+<p><i>Temperature</i></p>
+
+<p>In the view of the necessity for computing individual density-altitude profiles for each atmospheric species in the heterosphere, the use of molecular-scale temperature <i>T<sub>M</sub></i> becomes impractical, and in this region kinetic temperature <i>T</i> is used as a governing parameter. In addition, the use of a linearly segmented temperature-height function, with discontinuous first derivatives, is often terminated in favor of one in which the first derivative is continuous. Furthermore, geometric altitude replaces geopotential altitude as the argument of the temperature-height function.</p>
+
+<p>The observed temperature-height profiles usually show large gradients in the lower thermosphere. At greater altitudes, the gradients decrease with increasing height to the exobase, where the temperature approaches as asymptote (usually referred to as the exospheric temperature <i>T<sub>&#8734;</sub></i>), which varies with solar activity, time of day, and several other parameters.</p>
+
+<p><img src="./Basic of Space Flight_ Atmospheric Models_files/figS3-1.gif" align="right" width="270" height="350" hspace="10">
+The temperature-altitude profile may be defined in terms of one or more successive functions. For example, the U.S. Standard Atmosphere, which we'll examine in detail later, uses three functions between 86 and 120 km — an isothermal layer, a layer in which <i>T(z)</i> has the form of an ellipse, and a constant positive gradient layer — and above 120 km, a layer in which <i>T</i> increases exponentially toward an asymptote.</p>
+
+<p>For the first of these functions, no one-size-fits-all instructions can be given, as the function(s) are selected on a case-by-case basis as needed to best fit the observed temperature-altitude profile in this region. The latter exponential function, however, is the predominate form at thermospheric altitudes. The standard exponential form is,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(25)</i></font></td>
+<td><font size="2">T = T<sub>&#8734;</sub> – (T<sub>&#8734;</sub> – T<sub>o</sub>) × EXP(–&#955;&#958;)</font></td></tr></tbody></table></p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2">where</font></td>
+<td><font size="2">&#955; = L<sub>o</sub> / (T<sub>&#8734;</sub> – T<sub>o</sub>)</font></td></tr></tbody></table>
+
+<table border="0"><tbody><tr><td width="75"><font size="2"> </font></td>
+<td><font size="2">&#958; = (z – z<sub>o</sub>) × (r<sub>o</sub> + z<sub>o</sub>) / (r<sub>o</sub> + z)</font></td></tr></tbody></table></p>
+
+<p>the principal features of which are shown in Figure 1. In this case, <i>z<sub>o</sub></i> and <i>T<sub>o</sub></i> are the geometric altitude and kinetic temperature at the origin of the exponential function, and should not be confused with sea-level values, which typically carry the same denotation. <i>L<sub>o</sub></i> is the initial temperature gradient at the origin, and <i>r<sub>o</sub></i> is the planet radius.</p>
+
+<p><i>Pressure</i></p>
+
+<p>Total pressure <i>P</i> is equal to the sum of the partial pressures for the individual species,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(26)</i></font></td>
+<td><font size="2">P = &#931;P<sub>i</sub> = &#931;n<sub>i</sub> × k × T</font></td></tr></tbody></table></p>
+
+<p>where <i>k</i> is the Boltzmann constant (1.3806488×10<sup>-23</sup> J/K), <i>T</i> is <i>T(z)</i> as defined for the appropriate altitude regions, and <i>&#931;n<sub>i</sub></i> the sum of the number densities of the individual gas species comprising the atmosphere at altitude <i>z</i>. Neither <i>n<sub>i</sub></i>, the number densities of individual species, nor <i>&#931;n<sub>i</sub></i>, the sum of the individual number densities, is known directly. Consequently, pressures cannot be computed without first determining <i>n<sub>i</sub></i> for each of the significant species.</p>
+
+<p><i>Mass Density</i></p>
+
+<p>The total volumetric mass density is equal to,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(27)</i></font></td>
+<td><font size="2">&#961; = &#931;(n<sub>i</sub> × M<sub>i</sub>) / N<sub>A</sub></font></td></tr></tbody></table></p>
+
+<p>where <i>n<sub>i</sub></i> and <i>M<sub>i</sub></i> are the number density and defined molecular weight of the individual gas species, and <i>N<sub>A</sub></i> is the Avagadro constant (6.0221413×10<sup>26</sup> kmol<sup>-1</sup>). As with pressure, densities cannot be computed without first determining <i>n<sub>i</sub></i> for each of the significant species.</p>
+
+<p><i>Number Densities</i></p>
+
+<p>On Earth, in the altitude region between approximately 85 and 120 km, the effect of height- and time-dependent, molecular oxygen dissociation, and the competition between eddy and molecular diffusion combine to complicate the study of the height distribution of the atmospheric species, such that the generation of numerical values for the altitude profiles of physical parameters necessitates a considerable amount of numerical computation. More specifically, atomic oxygen becomes appreciable above 85 km, and diffusive separation begins to be effective at an average height of about 100 km. Also, in the regime where molecular diffusion becomes significant (above about 85 km), the effect of vertical winds in the composition in important.</p>
+
+<p>These conditions lead to a complex dynamically oriented expression, applicable to each individual gas species, which includes vertical transport and diffusive separation. Ideally, this set of equations should be solved simultaneously, since the number densities of all the species are coupled through the expressions for molecular diffusion. Such a solution would require an inordinate amount of computation. A simpler approach is desired, which is found using some simplifying approximations, and by calculating the number densities of the individual species one at a time. Even this simpler approach is lengthier and more involved than we want to delve into here. However, if you wish to read more, refer to the following excerpt from NASA document SP-398:</p>
+
+</a><p><a name="modeling"></a><a href="http://www.braeunig.us/space/pdf/number_density.pdf" target="_new">Number Densities of Individual Species</a></p>
+
+<p>Above approximately 120 km, it is relatively safe to assume that there is no further large-scale oxygen dissociation, and that diffusive equilibrium prevails. Under such conditions, the simultaneous equations governing molecular diffusion are no longer interdependent, and these equations can then be applied to each atmospheric constituent separately. In this case, the computation of the individual density-height profiles presents no greater difficulty than that of the total pressure or density below 80 km.</p>
+
+<p>Number density decreases exponentially with height in an identical way to pressure. That is,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(28)</i></font></td>
+<td><font size="2">n<sub>b+1</sub> = n<sub>b</sub> × e<sup>[ –(z<sub>b+1</sub> – z<sub>b</sub>) / H ]</sup></font></td></tr></tbody></table></p>
+
+<p>where the subscript <i>b</i> refers to successive atmospheric layers.</p>
+
+<p>Referring to equation (10) we recall that scale height <i>H</i> is a function of molecular weight <i>M</i>, temperature <i>T</i>, and acceleration of gravity <i>g</i>. By computing <i>n</i> for each atmospheric constituent separately, <i>M</i> is constant and equal to the species' defined molecular weight. However, the function <i>T(z)</i> is height-dependent and non-linear, such as the function seen in equation (25). And now that <i>z</i> has replaced <i>h</i> as the parameter of height, <i>g(z)</i> is height-dependent acceleration of gravity, per equation (7). This leads to a complex and messy integration, which we'll not attempt to undertake.</p>
+
+<p>Instead we can compute a table of values of <i>n</i> with sufficient accuracy if we select a table increment of height <i>dz</i> that is adequately small. Furthermore, we calculate <i>n</i> using the mean value of <i>H</i> for each atmospheric layer; that is, in equation (28) we use <i>H = (H<sub>b</sub>+H<sub>b+1</sub>)/2</i>. Using this averaging technique, <i>dz</i> = 1 km yields results that are likely adequate for our purposes, while anything smaller than <i>dz</i> = 0.1 km produces insignificant improvement.</p>
+
+<p>The steps are as follows:</p>
+
+<ul>
+<li>Define starting values of <i>z<sub>0</sub></i> and <i>n<sub>0</sub></i> for first species
+</li><li>For <i>b</i> = 0,
+<ul>
+<li>Compute <i>T<sub>0</sub></i> from defined function <i>T(z)</i>
+</li><li>Compute <i>g<sub>0</sub></i> using equation (7)
+</li><li>Compute <i>H<sub>0</sub></i> using equation (10)
+</li></ul>
+</li><li>For <i>b</i> = 1,
+<ul>
+<li>Compute <i>z<sub>1</sub> = z<sub>0</sub> + dz</i>
+</li><li>Compute <i>T<sub>1</sub></i> from defined function <i>T(z)</i>
+</li><li>Compute <i>g<sub>1</sub></i> using equation (7)
+</li><li>Compute <i>H<sub>1</sub></i> using equation (10)
+</li><li>Compute <i>n<sub>1</sub></i> using equation (28), where <i>H = (H<sub>0</sub>+H<sub>1</sub>)/2</i> 
+</li></ul>
+</li><li>Repeat for <i>b</i> = 2, 3, 4 ... etc.
+</li><li>Repeat for additional species
+</li></ul>
+
+<p>Now let's see an example...</p>
+
+<p>Say we have molecular nitrogen with a number density of <i>n<sub>0</sub></i> = 3.73×10<sup>17</sup> m<sup>-3</sup> at a geometric altitude of <i>z<sub>0</sub></i> = 120 km. We want to compute <i>n<sub>1</sub></i> at an altitude of <i>z<sub>1</sub></i> = 121 km. The molecular weight of N<sub>2</sub> is  <i>M</i> = 28.0134 kg/kmol, the sea-level value of the acceleration of gravity is <i>g<sub>o</sub></i> = 9.80665 m/s<sup>2</sup>, the effective radius of Earth is <i>r<sub>o</sub></i> = 6357 km, and assume that the function <i>T(z)</i> is defined.</p>
+
+<p>At <i>b</i> = 0 we have,</p>
+
+<p></p><dd>z<sub>0</sub> = 120 km
+<br></dd><dd>n<sub>0</sub> = 3.73×10<sup>17</sup> m<sup>-3</sup>
+<br></dd><dd>Assume the defined function T(z) gives T<sub>0</sub> = 360 K
+<br></dd><dd>From equation (7), g<sub>0</sub> = 9.447 m/s<sup>2</sup>
+<br></dd><dd>From equation (10), H<sub>0</sub> = 11.31 km</dd><p></p>
+
+<p>At <i>b</i> = 1 we have,</p>
+
+<p></p><dd>z<sub>1</sub> = 121 km
+<br></dd><dd>T<sub>1</sub> = 372 K (assumed)
+<br></dd><dd>g<sub>1</sub> = 9.444 m/s<sup>2</sup>
+<br></dd><dd>H<sub>1</sub> = 11.69 km</dd><p></p>
+
+<p>Therefore, from equation (28),</p>
+
+<p></p><dd>n<sub>1</sub> = 3.73×10<sup>17</sup> × EXP[ –(121 – 120) / 11.50 ] = 3.42×10<sup>17</sup> m<sup>-3</sup></dd><p></p>
+
+<p>The above steps are repeated for additional values of <i>b</i> and for the other atmospheric constituents (such as O<sub>2</sub>, O, Ar, He, and H). This will produce a table of values giving <i>n<sub>i</sub></i> at regular height intervals for each individual species.</p>
+
+<p>After computing values of <i>n<sub>i</sub></i>, pressure and density are calculated using equations (26) and (27). If it is desired to compute pressure and density directly from geometric altitude, plot the values if <i>lnP</i> and <i>ln&#961;</i> versus <i>z</i> and fit a curve to the resulting data points. This yields functions <i>lnP(z)</i> and <i>ln&#961;(z)</i>, from which we obtain <i>P = EXP(lnP(z))</i> and <i>&#961; = EXP(ln&#961;(z))</i>,  
+
+</p><p><i>Speed of Sound</i></p>
+
+<p>The limitations of the concept of speed of sound due to extreme attenuation are a concern at high altitudes. The attenuation that exists at sea level for high frequencies applies to successively lower frequencies as atmospheric pressure decreases, or as the mean free path increases. For this reason, the concept of speed if sound (except for frequencies approaching zero) progressively loses its range of applicability at high altitudes. Hence, speed of sound is generally not computed for high altitudes.</p>
+
+<p><a name="USSA1976">
+<font size="+1">U.S. Standard Atmosphere</font></a></p><a name="USSA1976">
+
+<p>The World Meteorological Organization (WMO) has defined the Standard Atmosphere as follows:</p>
+
+<p>"A hypothetical vertical distribution of atmospheric temperature, pressure and density which by international agreement and for historical reasons, is roughly representative of year-round, mid-latitude conditions. Typical usages are as a basis for pressure altimeter calibrations, aircraft performance calculations, aircraft and rocket design, ballistic tables and meteorological diagrams. Air is assumed to obey the perfect gas law and the hydrostatic equation which, taken together, relate temperature, pressure, and density with geopotential. Only one standard atmosphere should be specified at a particular time and this standard atmosphere must not be subjected to amendment except at intervals of many years."</p>
+
+<p>Because of the interest of aerospace engineers and atmospheric scientists in conditions at much higher altitudes than those currently being considered by the WMO, members of the U.S. Committee on Extension to the Standard Atmosphere (COSEA) agreed to add the following paragraph to the above definition in describing the U.S. Standard Atmosphere, 1976, which extends to 1000 km:</p>
+
+<p>"The atmosphere shall also be considered to rotate with the earth, and be an average over the diurnal cycle, semi-annual variation, and the range of conditions from active to quiet geomagnetic, and active to quiet sunspot conditions. Above the turbopause (about 110 km) generalized forms of the hydrostatic equations apply."</p>
+
+<p>The U.S. Standard Atmosphere is an idealized, steady-state representation of mean annual conditions of Earth's atmosphere from the surface to 1000 km at latitude 45<sup>o</sup> N, as it is assumed to exist during a period with moderate solar activity. The defining meteorological elements are sea-level temperature and pressure, and a temperature-height profile to 1000 km. The air is assumed to be dry, and at heights sufficiently below 86 km, the atmosphere is assumed to be homogeneously mixed with a relative-volume composition leading to a constant mean molecular weight.</p>
+
+<p><i>Adopted Constants</i></p>
+
+<p>The following constants are adopted by this Standard for the purposes of computation. Note that the values of <i>k</i>, <i>N<sub>A</sub></i> and <i>R*</i> differ from currently accepted values.</p>
+
+<p></p><dd>R* = 8314.32 J/kg-K
+<br></dd><dd>k = 1.380622×10<sup>-23</sup> J/K
+<br></dd><dd>N<sub>A</sub> = 6.022169×10<sup>-26</sup> kmol<sup>-1</sup>
+<br></dd><dd>g<sub>o</sub> = 9.80665 m/s<sup>2</sup>
+<br></dd><dd>g<sub>o</sub>' = 9.80665 (m/s)<sup>2</sup>/m'
+<br></dd><dd>r<sub>o</sub> = 6356.766 km
+<br></dd><dd>M<sub>o</sub> = 28.9644 kg/kmol
+<br></dd><dd>P<sub>o</sub> = 101325 Pa
+<br></dd><dd>T<sub>o</sub> = 288.15 K
+<br></dd><dd>T<sub>&#8734;</sub> = 1000.0 K
+<br></dd><dd>&#947; = 1.400</dd><p></p>
+
+<p><b>0 km to 86 km</b></p>
+
+<p>For altitudes below 86 km, the U.S. Standard Atmosphere uses the method and equations described in the section <i>Atmospheric Modeling, Part I – Homosphere</i>. Values of <i>h<sub>b</sub></i> and <i>L<sub>M,b</sub></i> are given in Table 3. The reference-level values of <i>T<sub>M,b</sub></i> and <i>P<sub>b</sub></i> for <i>b</i> = 0 are equal to the sea level values <i>T<sub>o</sub></i> = 288.15 K and <i>P<sub>o</sub></i> = 101325 Pa.</p>
+
+<p></p><center>
+<table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="3"><font size="2"><b>Table 3</b><br>The defined reference levels and gradients of<br> the linearly segmented temperature-height profile<br>from the surface to 86 geometric kilometers</font></td>
+  </tr>
+  <tr align="center">
+    <td width="28%"><font size="2">Subscript<br>b</font></td>
+    <td width="36%"><font size="2">Geopotential<br>height, h<sub>b</sub><br>(km')</font></td>
+    <td width="36%"><font size="2">Molecular-scale<br>temperature<br>gradient, L<sub>M,b</sub><br>(K/km')</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">0</font></td>
+    <td><font size="2">0</font></td>
+    <td><font size="2">–6.5</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">1</font></td>
+    <td><font size="2">11</font></td>
+    <td><font size="2">0.0</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">2</font></td>
+    <td><font size="2">20</font></td>
+    <td><font size="2">+1.0</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">3</font></td>
+    <td><font size="2">32</font></td>
+    <td><font size="2">+2.8</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">4</font></td>
+    <td><font size="2">47</font></td>
+    <td><font size="2">0.0</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">5</font></td>
+    <td><font size="2">51</font></td>
+    <td><font size="2">–2.8</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">6</font></td>
+    <td><font size="2">71</font></td>
+    <td><font size="2">–2.0</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">7</font></td>
+    <td><font size="2">84.8520</font></td>
+    <td></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p>The complete set of equations used to compute atmospheric properties from sea level to a geometric altitude of 86 km are summarized in Table 4. Be advised that the given altitudes are geopotential. In flight analysis or simulation, it is probable that you'll be working in geometric altitude. If this is the case, the geometric altitude <i>z</i> must be converted to geopotential altitude <i>h</i> using equation (14). Then, using the calculated value of <i>h</i>, the applicable equations are selected from Table 4 and the atmospheric properties are computed.</p>  
+
+</a><p><a name="USSA1976"></a><a name="table4">
+</a></p><center><table border="3" cellpadding="5" cellspacing="1">
+  <tbody><tr>
+    <th align="center" colspan="4"><font size="3">Table 4<hr>U.S. Standard Atmosphere, 0 to 86 km</font></th>
+  </tr>
+  <tr>
+    <th align="center"><font size="2">Layer</font></th>
+    <th align="center"><font size="2">Geopotential<br>Altitude, h<br>(km')</font></th>
+    <th align="center"><font size="2">Molecular-Scale<br>Temperature, T<sub>M</sub><br>(K)</font></th>
+    <th align="center"><font size="2">Pressure, P<br>(Pa)</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">Troposphere</font></td>
+    <td align="center"><font size="2">0-11</font></td>
+    <td align="center"><font size="2">288.15 – 6.5 × h</font></td>
+    <td align="center"><font size="2">101325.0 × [288.15 / (288.15 – 6.5 × h)] <sup>(34.1632 / –6.5)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center" rowspan="3"><font size="2">Stratosphere</font></td>
+    <td align="center"><font size="2">11-20</font></td>
+    <td align="center"><font size="2">216.65</font></td>
+    <td align="center"><font size="2">22632.06 × EXP[–34.1632 × (h – 11) / 216.65]</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">20-32</font></td>
+    <td align="center"><font size="2">196.65 + h</font></td>
+    <td align="center"><font size="2">5474.889 × [216.65 / (216.65 + (h – 20))] <sup>(34.1632)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">32-47</font></td>
+    <td align="center"><font size="2">139.05 + 2.8 × h</font></td>
+    <td align="center"><font size="2">868.0187 × [228.65 / (228.65 + 2.8 × (h – 32))] <sup>(34.1632 / 2.8)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center" rowspan="3"><font size="2">Mesosphere</font></td>
+    <td align="center"><font size="2">47-51</font></td>
+    <td align="center"><font size="2">270.65</font></td>
+    <td align="center"><font size="2">110.9063 × EXP[–34.1632 × (h – 47) / 270.65]</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">51-71</font></td>
+    <td align="center"><font size="2">413.45 – 2.8 × h</font></td>
+    <td align="center"><font size="2">66.93887 × [270.65 / (270.65 – 2.8 × (h – 51))] <sup>(34.1632 / –2.8)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">71-84.852</font></td>
+    <td align="center"><font size="2">356.65 – 2.0 × h</font></td>
+    <td align="center"><font size="2">3.956420 × [214.65 / (214.65 – 2 × (h – 71))] <sup>(34.1632 / –2)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="4"><font size="2"><b>Density, &#961; (kg/m<sup>3</sup>) = P/(RT<sub>M</sub>)<br>Speed of sound, C (m/s) = (&#947;RT<sub>M</sub>)<sup>1/2</sup></b><br><hr>Specific gas constant, R = 287.053 J/kg-K<br>Specific heat ratio, &#947; = 1.400</font></td>
+  </tr>
+</tbody></table></center><p></p><a name="table4">
+
+<p><b>86 km to 1000 km</b></p>
+
+<p>For altitudes above 86 km, the COSEA Task Group decided to include as constituents only those species that are known to contribute significantly to the total number density in any portion of the atmosphere between 86 km and 1000 km. Those gases that appear never to contribute more than about 0.5% of the total composition at any point within this height region, or which for various reasons do not exhibit predictable behavior, were purposely omitted. Using these guidelines, the following gases are included: N<sub>2</sub>, O, O<sub>2</sub>, Ar, and He. Atomic hydrogen is included at heights 150 km and above, but not included in boundary-value considerations at 86 km.</p>
+
+<p></p><center>
+<table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="2"><font size="2"><b>Table 5</b><br>Number densities of various<br>species at 86 km altitude</font></td>
+  </tr>
+  <tr align="center">
+    <td width="35%"><font size="2">Species</font></td>
+    <td width="65%"><font size="2">Number density (m<sup>-3</sup>)</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">N<sub>2</sub></font></td>
+    <td><font size="2">1.129794 × 10<sup>20</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">O</font></td>
+    <td><font size="2">8.600000 × 10<sup>16</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">O<sub>2</sub></font></td>
+    <td><font size="2">3.030898 × 10<sup>19</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Ar</font></td>
+    <td><font size="2">1.351400 × 10<sup>18</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">He</font></td>
+    <td><font size="2">7.581730 × 10<sup>14</sup></font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p><i>Temperature</i></p>
+
+<p>Below 80 km, where <i>M</i> is constant at <i>M<sub>o</sub></i>, <i>T</i> is equal to <i>T<sub>M</sub></i> in accordance with equation (16). However, from Table 5 it is seen that the defined number densities at 86 km leads to a value of <i>M</i> = 28.9522 kg/kmol, about 0.04% less than <i>M<sub>o</sub></i>. To produce a smooth transition from this value of <i>M</i> to <i>M<sub>o</sub></i>, the altitude profile of <i>M</i> has arbitrarily been defined to decrease in terms of the ratio <i>M/M<sub>o</sub></i> from 1.000000 at 80 km to 0.9995788 at 86 km, thus the values of <i>T</i> correspondingly decrease from those of <i>T<sub>M</sub></i>. At <i>z<sub>7</sub></i> = 86 km (<i>h<sub>7</sub></i> = 84.852 km') we find that <i>T<sub>M,7</sub></i> = 186.946 K and <i>T<sub>7</sub></i> = 186.8673 K.</p>
+
+<p>At heights above 86 km, the temperature-altitude profile is defined in terms of four successive functions, each of which is specified in such a way that the first derivative of <i>T</i> with respect to <i>z</i> is continuous over the entire altitude region, 86 to 1000 km. These four functions begin successively at the first four base heights, <i>z<sub>b</sub></i> listed in Table 6, and are designed to represent the following conditions: (1) an isothermal layer from 86 to 91 km; (2) a layer in which <i>T(z)</i> has the form of an ellipse from 91 to 110 km; (3) a constant, positive gradient layer from 110 to 120 km; and (4) a layer in which <i>T</i> increases exponentially toward an asymptote, as <i>z</i> increases from 120 to 1000 km.</p>
+
+<p></p><center><table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="4"><font size="2"><b>Table 6</b><br>The reference levels and function designations for<br>each of the four segments of the temperature-height<br>profile between 86 and 1000 km, with gradients<br>specified for two linear segments, and with an<br>intermediate reference height for the adopted<br>atomic-hydrogen number-density value</font></td>
+  </tr>
+  <tr align="center">
+    <td width="20%"><font size="2">Subscript<br>b</font></td>
+    <td width="26%"><font size="2">Geometric<br>height, z<sub>b</sub><br>(km)</font></td>
+    <td width="26%"><font size="2">Kinetic-<br>temperature<br>gradient, L<sub>K,b</sub><br>(K/km)</font></td>
+    <td width="28%"><font size="2">Form of function<br>relating T to z</font></td></tr>
+  <tr align="center">
+    <td><font size="2">7</font></td>
+    <td><font size="2">86</font></td>
+    <td><font size="2">0.0</font></td>
+    <td><font size="2">Linear</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">8</font></td>
+    <td><font size="2">91</font></td>
+    <td></td>
+    <td><font size="2">Elliptical</font></td></tr>
+  <tr align="center">
+    <td><font size="2">9</font></td>
+    <td><font size="2">110</font></td>
+    <td><font size="2">12.0</font></td>
+    <td><font size="2">Linear</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">10</font></td>
+    <td><font size="2">120</font></td>
+    <td></td>
+    <td rowspan="3"><font size="2">Exponential</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">11</font></td>
+    <td><font size="2">500</font></td>
+    <td></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">12</font></td>
+    <td><font size="2">1000</font></td>
+    <td></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p>For the layer from <i>z<sub>7</sub></i> = 86 km to <i>z<sub>8</sub></i> = 91 km, the temperature-altitude function is defined to be isothermally linear with respect to geometric altitude, so that the gradient of <i>T</i> with respect to <i>z</i> is zero (see Table 6). Thus, the standard form of the linear function degenerates to</p>
+
+<p></p><dd>T = T<sub>7</sub> = 186.8673 K</dd><p></p>
+
+<p>Since <i>T</i> is defined to be constant for the entire layer, <i>z<sub>7</sub></i> to <i>z<sub>8</sub></i>, the temperature at <i>z<sub>8</sub></i> is <i>T<sub>8</sub></i> = <i>T<sub>7</sub></i> = 186.8673 K, and the gradient at <i>z<sub>8</sub></i> is <i>L<sub>K,8</sub></i> = 0.0 K/km, the same as for <i>L<sub>K,7</sub></i>.</p>
+
+<p>For the layer from <i>z<sub>8</sub></i> = 91 km to <i>z<sub>9</sub></i> = 110 km, the temperature-altitude function is defined to be a segment of an ellipse expressed by</p>
+
+<p></p><dd>T = T<sub>c</sub> + A × [ 1 – ((z – z<sub>8</sub>) / a)<sup>2</sup> ]<sup>1/2</sup></dd><p></p>
+
+<p>where <i>T<sub>c</sub></i> = 263.1905 K, <i>A</i> = –76.3232 K, <i>a</i> = –19.9429 km, and <i>z</i> is limited to values from 91 to 110 km. The equation is derived from the basic equation for an ellipse, to meet the values of <i>T<sub>8</sub></i> and <i>L<sub>K,8</sub></i> derived above, as well as defined values <i>T<sub>9</sub></i> = 240.0 K, and <i>L<sub>K,9</sub></i> = 12.0 K/km, for <i>z<sub>9</sub></i> = 110 km.</p>  
+
+<p>For the layer from <i>z<sub>9</sub></i> = 110 km to <i>z<sub>10</sub></i> = 120 km, <i>T(z)</i> has the standard form of the linear function, where subscript <i>b</i> is 9, such that <i>T<sub>b</sub></i> and <i>L<sub>K,b</sub></i> are, respectively, the defined quantities <i>T<sub>9</sub></i> and <i>L<sub>K,9</sub></i>, while <i>z</i> is limited to the range 110 to 120 km. Thus,</p> 
+
+<p></p><dd>T = T<sub>9</sub> + L<sub>K,9</sub> × (z – z<sub>9</sub>)</dd><p></p>
+
+<p>The value of <i>T<sub>10</sub></i> at <i>z<sub>10</sub></i> is found from the above to be 360.0 K.</p>
+
+<p>For the layer from <i>z<sub>10</sub></i> = 120 km to <i>z<sub>12</sub></i> = 1000 km, <i>T(z)</i> is defined to have the exponential form of equation (25),</p>
+
+<p></p><dd>T = T<sub>&#8734;</sub> – (T<sub>&#8734;</sub> – T<sub>10</sub>) × EXP(–&#955;&#958;)</dd><p></p>
+
+<p>where</p>
+
+<p></p><dd>&#955; = L<sub>K,9</sub> / (T<sub>&#8734;</sub> – T<sub>10</sub>) = 0.01875
+<br></dd><dd>&#958; = (z – z<sub>10</sub>) × (r<sub>o</sub> + z<sub>10</sub>) / (r<sub>o</sub> + z)</dd><p></p>
+
+<p>In the above expressions, T<sub>&#8734;</sub> is the exospheric temperature and equals the defined value 1000 K, which is assumed to represent mean solar conditions.</p>
+
+<p></p><center><table border="3" cellpadding="5" cellspacing="1">
+  <tbody><tr>
+    <th align="center" colspan="2"><font size="3">Table 7<hr>U.S. Standard Atmosphere, 86 to 1000 km</font></th>
+  </tr>
+  <tr>
+    <th align="center"><font size="2">Geocentric<br>Altitude, z<br>(km)</font></th>
+    <th align="center"><font size="2">Kinetic Temperature, T<br>(K)</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">86-91</font></td>
+    <td align="center"><font size="2">186.8673</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">91-110</font></td>
+    <td align="center"><font size="2">263.1905 – 76.3232 × SQRT[1 – ((z – 91) / –19.9429)<sup>2</sup>]</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">110-120</font></td>
+    <td align="center"><font size="2">240 + 12 × (z – 110)</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">120-1000</font></td>
+    <td align="center"><font size="2">1000 – 640 × EXP(–0.01875 × &#958;)<br>where &#958; = (z – 120) × (6356.766 + 120) / (6356.766 + z)</font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p><i>Pressure and Density</i></p>
+
+<p>From equations (26) and (27) we see that pressure and mass density in this height region are computed from the number densities of the individual gas species. However, we also learned that computation of number density, particularly between the altitudes of 86 km and 120 km, is a lengthier topic than we want to cover in this web page. Instead, we can obtain values of pressure and density from tables in the following document:</p> 
+
+</a><p><a name="table4"></a><a href="http://www.braeunig.us/space/pdf/USSA1976.pdf" target="_new">U.S. Standard Atmosphere, 1976</a></p> 
+
+<p>Using the tabulated data, we derive a set of equations from which we compute pressure and density for geometric altitudes from 86 km to 1000 km. The basic equation form is,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(29)</i></font></td>
+<td><font size="2">EXP( A × z<sup>4</sup> + B × z<sup>3</sup> + C × z<sup>2</sup> + D × z + E )</font></td></tr></tbody></table></p>
+
+<p>where the numerical value of the <i>A</i> through <i>E</i> coefficients are listed in Table 8.</p><p>
+
+</p><p></p><center><table border="3" cellpadding="5" cellspacing="1">
+  <tbody><tr>
+    <th align="center" colspan="8"><font size="3">Table 8<hr>U.S. Standard Atmosphere, 86 to 1000 km</font></th>
+  </tr>
+  <tr>
+    <th width="15%" align="center" rowspan="2"><font size="2">Geometric<br>Altitude, z<br>(km)</font></th>
+    <th width="85%" align="center" colspan="5"><font size="2">Basic equation form:<br>EXP( A × z<sup>4</sup> + B × z<sup>3</sup> + C × z<sup>2</sup> + D × z + E )</font></th>
+  </tr>
+  <tr>
+    <th width="17%" align="center"><font size="2">A</font></th>
+    <th width="17%" align="center"><font size="2">B</font></th>
+    <th width="17%" align="center"><font size="2">C</font></th>
+    <th width="17%" align="center"><font size="2">D</font></th>
+    <th width="17%" align="center"><font size="2">E</font></th>
+  </tr>
+  <tr>
+    <th align="center" colspan="6"><font size="2">Pressure, P (Pa)</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">86-91</font></td>
+    <td align="center"><font size="2">0.000000</font></td>
+    <td align="center"><font size="2">2.159582E-06</font></td>
+    <td align="center"><font size="2">–4.836957E-04</font></td>
+    <td align="center"><font size="2">–0.1425192</font></td>
+    <td align="center"><font size="2">13.47530</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">91-100</font></td>
+    <td align="center"><font size="2">0.000000</font></td>
+    <td align="center"><font size="2">3.304895E-05</font></td>
+    <td align="center"><font size="2">–0.009062730</font></td>
+    <td align="center"><font size="2">0.6516698</font></td>
+    <td align="center"><font size="2">–11.03037</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">100-110</font></td>
+    <td align="center"><font size="2">0.000000</font></td>
+    <td align="center"><font size="2">6.693926E-05</font></td>
+    <td align="center"><font size="2">–0.01945388</font></td>
+    <td align="center"><font size="2">1.719080</font></td>
+    <td align="center"><font size="2">–47.75030</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">110-120</font></td>
+    <td align="center"><font size="2">0.000000</font></td>
+    <td align="center"><font size="2">–6.539316E-05</font></td>
+    <td align="center"><font size="2">0.02485568</font></td>
+    <td align="center"><font size="2">–3.223620</font></td>
+    <td align="center"><font size="2">135.9355</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">120-150</font></td>
+    <td align="center"><font size="2">2.283506E-07</font></td>
+    <td align="center"><font size="2">–1.343221E-04</font></td>
+    <td align="center"><font size="2">0.02999016</font></td>
+    <td align="center"><font size="2">–3.055446</font></td>
+    <td align="center"><font size="2">113.5764</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">150-200</font></td>
+    <td align="center"><font size="2">1.209434E-08</font></td>
+    <td align="center"><font size="2">–9.692458E-06</font></td>
+    <td align="center"><font size="2">0.003002041</font></td>
+    <td align="center"><font size="2">–0.4523015</font></td>
+    <td align="center"><font size="2">19.19151</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">200-300</font></td>
+    <td align="center"><font size="2">8.113942E-10</font></td>
+    <td align="center"><font size="2">–9.822568E-07</font></td>
+    <td align="center"><font size="2">4.687616E-04</font></td>
+    <td align="center"><font size="2">–0.1231710</font></td>
+    <td align="center"><font size="2">3.067409</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">300-500</font></td>
+    <td align="center"><font size="2">9.814674E-11</font></td>
+    <td align="center"><font size="2">–1.654439E-07</font></td>
+    <td align="center"><font size="2">1.148115E-04</font></td>
+    <td align="center"><font size="2">–0.05431334</font></td>
+    <td align="center"><font size="2">–2.011365</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">500-750</font></td>
+    <td align="center"><font size="2">–7.835161E-11</font></td>
+    <td align="center"><font size="2">1.964589E-07</font></td>
+    <td align="center"><font size="2">–1.657213E-04</font></td>
+    <td align="center"><font size="2">0.04305869</font></td>
+    <td align="center"><font size="2">–14.77132</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">750-1000</font></td>
+    <td align="center"><font size="2">2.813255E-11</font></td>
+    <td align="center"><font size="2">–1.120689E-07</font></td>
+    <td align="center"><font size="2">1.695568E-04</font></td>
+    <td align="center"><font size="2">–0.1188941</font></td>
+    <td align="center"><font size="2">14.56718</font></td>
+  </tr>
+  <tr>
+    <th align="center" colspan="6"><font size="2">Density, &#961; (kg/m<sup>3</sup>)</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">86-91</font></td>
+    <td align="center"><font size="2">0.000000</font></td>
+    <td align="center"><font size="2">–3.322622E-06</font></td>
+    <td align="center"><font size="2">9.111460E-04</font></td>
+    <td align="center"><font size="2">–0.2609971</font></td>
+    <td align="center"><font size="2">5.944694</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">91-100</font></td>
+    <td align="center"><font size="2">0.000000</font></td>
+    <td align="center"><font size="2">2.873405E-05</font></td>
+    <td align="center"><font size="2">–0.008492037</font></td>
+    <td align="center"><font size="2">0.6541179</font></td>
+    <td align="center"><font size="2">–23.62010</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">100-110</font></td>
+    <td align="center"><font size="2">–1.240774E-05</font></td>
+    <td align="center"><font size="2">0.005162063</font></td>
+    <td align="center"><font size="2">–0.8048342</font></td>
+    <td align="center"><font size="2">55.55996</font></td>
+    <td align="center"><font size="2">–1443.338</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">110-120</font></td>
+    <td align="center"><font size="2">0.00000</font></td>
+    <td align="center"><font size="2">–8.854164E-05</font></td>
+    <td align="center"><font size="2">0.03373254</font></td>
+    <td align="center"><font size="2">–4.390837</font></td>
+    <td align="center"><font size="2">176.5294</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">120-150</font></td>
+    <td align="center"><font size="2">3.661771E-07</font></td>
+    <td align="center"><font size="2">–2.154344E-04</font></td>
+    <td align="center"><font size="2">0.04809214</font></td>
+    <td align="center"><font size="2">–4.884744</font></td>
+    <td align="center"><font size="2">172.3597</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">150-200</font></td>
+    <td align="center"><font size="2">1.906032E-08</font></td>
+    <td align="center"><font size="2">–1.527799E-05</font></td>
+    <td align="center"><font size="2">0.004724294</font></td>
+    <td align="center"><font size="2">–0.6992340</font></td>
+    <td align="center"><font size="2">20.50921</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">200-300</font></td>
+    <td align="center"><font size="2">1.199282E-09</font></td>
+    <td align="center"><font size="2">–1.451051E-06</font></td>
+    <td align="center"><font size="2">6.910474E-04</font></td>
+    <td align="center"><font size="2">–0.1736220</font></td>
+    <td align="center"><font size="2">–5.321644</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">300-500</font></td>
+    <td align="center"><font size="2">1.140564E-10</font></td>
+    <td align="center"><font size="2">–2.130756E-07</font></td>
+    <td align="center"><font size="2">1.570762E-04</font></td>
+    <td align="center"><font size="2">–0.07029296</font></td>
+    <td align="center"><font size="2">–12.89844</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">500-750</font></td>
+    <td align="center"><font size="2">8.105631E-12</font></td>
+    <td align="center"><font size="2">–2.358417E-09</font></td>
+    <td align="center"><font size="2">–2.635110E-06</font></td>
+    <td align="center"><font size="2">–0.01562608</font></td>
+    <td align="center"><font size="2">–20.02246</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">750-1000</font></td>
+    <td align="center"><font size="2">–3.701195E-12</font></td>
+    <td align="center"><font size="2">–8.608611E-09</font></td>
+    <td align="center"><font size="2">5.118829E-05</font></td>
+    <td align="center"><font size="2">–0.06600998</font></td>
+    <td align="center"><font size="2">–6.137674</font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p>If lower accuracy can be tolerated, pressure and density can be computed using fewer equations that span larger altitude ranges. For instance, pressure and density over the entire 86 km to 120 km altitude range can be approximated using the following:</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(30)</i></font></td>
+<td><font size="2">P = EXP(–0.0000000422012 z<sup>5</sup> + 0.0000213489 z<sup>4</sup> – 0.00426388 z<sup>3</sup> + 0.421404 z<sup>2</sup> – 20.8270 z + 416.225 )</font></td></tr></tbody></table></p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(31)</i></font></td>
+<td><font size="2">&#961; = EXP( 0.000000075691 z<sup>5</sup> – 0.0000376113 z<sup>4</sup> + 0.0074765 z<sup>3</sup> – 0.743012 z<sup>2</sup> + 36.7280 z – 729.346 )</font></td></tr></tbody></table></p>
+
+<p>While the coefficients in Table 8 will produce results that are generally accurate to about 4 digits, equations (30) and (31) are accurate to only 2 or 3 digits, though this may be good enough in some applications.</p>
+
+<p><a name="refatmos">
+<font size="+1">Reference Atmospheres</font></a></p><a name="refatmos">
+
+<p>For situations where no particular date or location is specified, the U.S. Standard Atmosphere is a good representation of Earth's atmosphere, and an excellent model for flight simulations, or for other purposes where atmospheric properties vs. altitude must be known. However, there may be circumstances when a more specific model is needed or desired. The following are some alternative models.</p>
+
+<p><b>Below 90 km</b></p>
+
+The Reference Atmospheres presented in this section were developed to provide Air Force engineers and designers of aerospace systems with up to date information on the seasonal, latitudinal, and longitudinal variations in the vertical distributions of the thermodynamics properties (pressure, temperature, and density) of the atmosphere in the Northern Hemisphere for altitudes up to 90 km. Special models are included to illustrate the magnitude of the changes in the vertical distributions of these atmospheric properties during extreme winter warmings and coolings of the stratosphere and mesosphere in artic and subarctic regions.<p></p>
+
+<p>The atmospheric models are defined by temperature-altitude profiles in which temperatures change linearly with respect to geopotential altitude. It is assumed that the air is dry, is in hydrostatic equilibrium, and behaves as a perfect gas. The molecular weight of air at sea level, 28.9644 kg/kmol, is assumed constant to 90 km. Actually, dissociation of molecular oxygen begins to take place near 80 km and molecular weight starts decreasing slowly with height. Consequently, the temperatures given in the tables for altitudes above 80 km are slightly but not significantly larger than the ambient kinetic temperature.</p>
+
+<p>Numerical values for the various thermodynamic and physical constants used in computing the tables of atmospheric properties for these Reference Atmospheres are identical to those used in the preparation of the U.S. Standard Atmosphere, 1976, with two exceptions. Surface conditions for the atmospheres are based on mean monthly sea-level values of pressure and temperature for the appropriate latitude rather than on standard conditions. The accelerations of gravity at sea level for the latitudes were obtained from the following expression in which gravity <i>g</i> varies with latitude &#966;:
+
+</p><p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(32)</i></font></td>
+<td><font size="2">g<sub>&#966;</sub> = 9.780356 × (1 + 0.0052885 × sin<sup>2</sup> &#966; – 0.0000059 sin<sup>2</sup> 2&#966;)</font></td></tr></tbody></table></p>
+
+<p>The relationship between geopotential altitude and geometric altitude is as expressed in equation (14).
+
+</p><p></p><center>
+<table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="3"><font size="2"><b>Table 9</b><br>Sea level acceleration of gravity and the<br>effective radius of Earth for each latitude</font></td>
+  </tr>
+  <tr align="center">
+    <td width="28%"><font size="2">Latitude<br>&#966;</font></td>
+    <td width="35%"><font size="2">Sea level<br>gravity, g<sub>&#966;</sub><br>(m/s<sup>2</sup>)</font></td>
+    <td width="37%"><font size="2">Effective Earth<br>radius, r<sub>o</sub><br>(km)</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">0</font></td>
+    <td><font size="2">9.78036</font></td>
+    <td><font size="2">6334.984</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">15</font></td>
+    <td><font size="2">9.78381</font></td>
+    <td><font size="2">6337.838</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">30</font></td>
+    <td><font size="2">9.79324</font></td>
+    <td><font size="2">6345.653</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">45</font></td>
+    <td><font size="2">9.80665</font></td>
+    <td><font size="2">6356.766</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">60</font></td>
+    <td><font size="2">9.81911</font></td>
+    <td><font size="2">6367.103</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">75</font></td>
+    <td><font size="2">9.82860</font></td>
+    <td><font size="2">6374.972</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">90</font></td>
+    <td><font size="2">9.83208</font></td>
+    <td><font size="2">6377.862</font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p>Sets of mean monthly Reference Atmospheres for altitudes up to 90 km have been developed for 15-degree intervals of latitude, including the equator and north pole, to provide information on the seasonal and latitudinal variations in the thermodynamic properties of the atmosphere. Properties of the January, April, July, and October models are presented in the following document:</p>
+
+</a><p><a name="refatmos"></a><a href="http://www.braeunig.us/space/pdf/Atmosphere_0-90.pdf" target="_new">Reference Atmospheres, 0 to 90 km</a></p>
+
+<p><b>90 km to 110 km</b></p>
+
+<p>These empirical atmospheres are based on a report entitled, "Atmospheric Structure and its Variation in the region from 25 to 120 km" by Groves (1971). In this section only the properties above 90 km are presented. The upper altitude of the models varies with latitude and time of year, depending on the availability of data. Above 90 km the data are primarily from rocketborne falling sphere, grenade and chemical release techniques. Data used are from all longitudes, with southern hemisphere data shifted by six months. Mean temperature values at latitudes from the equator to 70 degrees are given in Table 14-11 of the following document. Less accurate values (based on few data points) are indicated by an asterisk. Table 14-12 gives the corresponding pressure values and Table 14-13 the density values.</p>
+
+<p><a href="http://www.braeunig.us/space/pdf/Atmosphere_90-110.pdf" target="_new">Reference Atmospheres, 90 to 110 km</a></p>
+
+<p><b>120 km &amp; Above</b></p>
+
+<p>These atmospheres are based on a report by Jacchia (1971). Previous thermospheric models that assumed a single, constant set of boundary conditions at 120 km did not accurately represent variations in properties in the altitude region 120 to 180 km. To attempt to remedy this problem, Jacchia lowered the boundary to 90 km where it is known that there is an approximate isopycnic (constant density) layer, although the temperature shows important variations. In his models, all temperature profiles start from a constant value 183 K at 90 km. He did not include the model values below 110 km in order to disregard the less accurate region.</p>
+
+<p>The following are the major types of variation of properties of the thermosphere:</p>
+
+<ul>
+<li>Variations with the solar cycle</li>
+<li>Variations with daily changes in solar activity</li>
+<li>Diurnal and semidiurnal variations</li>
+<li>Atmospheric response to storms of various kinds</li>
+<li>Semi-annual variation</li>
+<li>Seasonal-latitudinal variations of the lower thermosphere</li>
+<li>Effects of large scale circulation</li>
+<li>Fluctuations associated with gravity waves</li>
+</ul>
+
+<p>The models described in this section include both long and short-term solar activity effects and diurnal, but not semi-diurnal, variations. Atmospheric response to storms is represented in terms of <a href="http://sunearthday.nasa.gov/swac/tutorials/mag_kp.php" target="_new"><i>Kp</i>, the 3-h geomagnetic planetary index</a>. This provides reasonable representation of the response to most storms, but not all.</p>
+
+<p>The average semi-annual variation is reasonably modeled, but it must be pointed out that the amplitude of this effect, whose cause is not completely understood, varies from year to year. The seasonal-latitudinal variations of the lower atmosphere are not modeled, except for an empirical expression for density but not temperature changes. Attempts have been made to model empirically some of the effects of large-scale circulation that primarily affect the composition of the thermosphere. Density and composition fluctuations caused by gravity waves are not modeled.</p>
+
+<p>Tables in this section are given with the exospheric temperature <i>T<sub>&#8734;</sub></i> as the defining parameter. To determine the exospheric temperature for a particular time and location the following equations are used. The temperature <i>T<sub>c</sub></i> is the global nighttime minimum of the exospheric temperature when <i>Kp</i> is zero.</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(33)</i></font></td>
+<td><font size="2">T<sub>c</sub> = 379 + 3.24 × <img src="./Basic of Space Flight_ Atmospheric Models_files/fbar.gif" width="10" height="12"><sub>10.7</sub> + 1.3 × (F<sub>10.7</sub> – <img src="./Basic of Space Flight_ Atmospheric Models_files/fbar.gif" width="10" height="12"><sub>10.7</sub>)</font></td></tr></tbody></table></p>
+
+<p>where F<sub>10.7</sub> is the 10.7-cm solar flux in solar flux units (10<sup>-22</sup> W/m<sup>2</sup>-Hz) and <img src="./Basic of Space Flight_ Atmospheric Models_files/fbar.gif" width="10" height="12"><sub>10.7</sub> is the mean F<sub>10.7</sub> solar flux. Averaged over five solar cycles between the years 1954-2008, <img src="./Basic of Space Flight_ Atmospheric Models_files/fbar.gif" width="10" height="12"><sub>10.7</sub> has the historical value of 129 SFU.</p>
+
+<p>The diurnal variation of the exospheric temperature can be represented by,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(34.a)</i></font></td>
+<td><font size="2">T<sub>D</sub> = T<sub>c</sub> × (1 + R × cos<sup>m</sup> &#951;)</font></td></tr></tbody></table></p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(34.b)</i></font></td>
+<td><font size="2">T<sub>N</sub> = T<sub>c</sub> × (1 + R × sin<sup>m</sup> &#952;)</font></td></tr></tbody></table></p>
+
+<p>where <i>T<sub>D</sub></i> is the maximum daily temperature and <i>T<sub>N</sub></i> is the minimum daily temperature. <i>R</i> is a coefficient with a value of approximately 0.3, and</p>
+
+<p><table border="0"><tbody><tr><td width="75"></td>
+<td><font size="2">&#951; = 1/2 × |&#966; – &#948;<sub>o</sub>|</font></td></tr>
+<tr><td width="75"></td>
+<td><font size="2">&#952; = 1/2 × |&#966; + &#948;<sub>o</sub>|</font></td></tr></tbody></table></p>
+
+<p>where &#966; is the latitude and &#948;<sub>o</sub> is the Sun's declination. A value of 2.2 can be used for <i>m</i>.</p>
+
+<p>For <i>Kp</i> above zero the exospheric temperature is increased by,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(35)</i></font></td>
+<td><font size="2">&#916;T<sub>&#8734;</sub> = 28 × Kp + 0.08 × EXP(Kp)</font></td></tr></tbody></table></p>
+
+<p><i>Kp</i> indices range from 0 (very quiet) to 9 (extremely disturbed). During the ten-year period 1994-2013, <i>Kp</i> had a median value of 2.</p>
+
+<p>The following document contains model values of kinetic temperature, logarithms of the concentrations of N<sub>2</sub>, O<sub>2</sub>, O, Ar, He, and H, mean molecular weight, and density as functions of altitude for exospheric temperatures ranging from 500 to 1600 K.</p>
+
+<p><a href="http://www.braeunig.us/space/pdf/Atmosphere_120-2K.pdf" target="_new">Reference Atmospheres, 120 to 2000 km</a></p>
+
+<p><a name="mars">
+<font size="+1">Atmosphere of Mars</font></a></p><a name="mars">
+
+<p><i>Overview</i></p>
+
+<p>The atmosphere of Mars is similar to Earth's in that it is thin and relatively transparent to sunlight. Mars' spin rate and axial tilt are also Earthlike. Thus, the Martian atmosphere falls into the category of a rapidly rotating, differentially heated atmosphere with a solid lower boundary. However, there are also important differences. The Martian atmosphere is primarily carbon dioxide with a much lower surface pressure than Earth's (about 0.6% of Earth), and Mars does not have an Earthlike hydrological cycle.</p>
+
+<p>The variation of temperature with height on Mars gives rise to a troposphere, a mesosphere, and a thermosphere. Mars does not have a stratosphere because it lacks an ozone layer. The tropopause on Mars is deep by comparison to Earth, extending to almost 60 km. In the Martian mesosphere, temperatures become nearly constant. In the thermosphere, temperatures increase because of heating due to the absorption of solar radiation. The base of the thermosphere is about 120 km. Mars, like Earth, has an isothermal exosphere, which begins at about 160 km to 250 km.</p>
+
+<p>Mars is colder than Earth, experiences a much greater seasonal change in available insolation (40% compared to 6% for Earth), and has Earthlike diurnal and seasonal changes. The globally averaged surface temperature of Mars is approximately 215 K. However, because Mars lacks oceans, its surface temperatures undergo considerable seasonal, diurnal, and latitudinal variation. The lowest surface temperatures (~150 K) occur in polar regions during winter, the highest surface temperatures (~300 K) occur in the southern subtropics when Mars is closest to the Sun. In these same regions, diurnal variations can exceed 100 K.</p>
+
+<p></p><center>
+<table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="2"><font size="2"><b>Table 10</b><br>Composition of the Martian<br>lower atmosphere (&lt; 120 km)</font></td>
+  </tr>
+  <tr align="center">
+    <td width="45%"><font size="2">Gas species</font></td>
+    <td width="55%"><font size="2">Abundance</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">CO<sub>2</sub></font></td>
+    <td><font size="2">95.32%</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">N<sub>2</sub></font></td>
+    <td><font size="2">2.7%</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Ar</font></td>
+    <td><font size="2">1.6%</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">O<sub>2</sub></font></td>
+    <td><font size="2">0.13%</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">CO</font></td>
+    <td><font size="2">0.08%</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">H<sub>2</sub>O</font></td>
+    <td><font size="2">210 ppm</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">NO</font></td>
+    <td><font size="2">100 ppm</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Ne</font></td>
+    <td><font size="2">2.5 ppm</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">HDO</font></td>
+    <td><font size="2">0.85 ppm</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Kr</font></td>
+    <td><font size="2">0.3 ppm</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Xe</font></td>
+    <td><font size="2">0.08 ppm</font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p><i>Atmospheric Model - Introduction</i></p>
+
+<p>Although complex models of the Martian atmosphere exist, for this web page we'll produce our own model.</p>
+
+<p>To date, all spacecraft that have landed on Mars have done so in either the equatorial region or the northern hemisphere. The first three landers to accomplish the feat – Viking 1, Viking 2, and Mars Pathfinder – touched down at northern latitudes during the summer season. There are a couple reasons for this: (1) landing near the equator, or at higher latitudes during the summer, provides the solar illumination needed for the operation of solar cells and the production of electricity; and (2) most of the northern hemisphere, and some of the equatorial regions, are of generally lower elevation than the southern hemisphere, thus allowing a lander to descend into a deeper and denser atmosphere, greatly improving the effectiveness of parachutes.</p>
+
+</a><p><a name="mars">Since the Viking and Pathfinder missions are representative of the sites that most spacecraft are likely to land, we can use data from these missions to construct our model. Atmospheric data from the Viking missions can be found </a><a href="http://www.braeunig.us/space/pdf/vikingdata.txt" target="_new">here</a> in tabular form, and data from Pathfinder can be found <a href="http://www.braeunig.us/space/atmmars.htm#graph" target="_new">here</a> in graphical form. It is unclear how the reported altitudes are measured, though the following assumptions are made: (1) Viking altitudes from 0 to 4.5 km are measured from the ground surface, and (2) all other altitudes are geometric height above the zero-datum.</p>
+
+<p>While Viking 1 (afternoon) and Viking 2 (morning) both landed during the daytime, Pathfinder landed at night near what is typically the coldest time of the day. Because of this, the Pathfinder data differs from that of Viking, leading us to construct two models. One model will be based on an average of the Viking 1 and Viking 2 data to give us a dayside model, while the other will be based on Pathfinder to give us a nightside model.</p>
+
+<p>Using the Viking data we can compute the mean molecular weight using equation (2), from which we find a slight decrease in molecular weight starting at about 120 km altitude. We also see that there are some gaps in the spacecraft data above this altitude. A geometric altitude of 120 km, therefore, appears to be an ideal height to terminate the first of our models. The data is most complete in this range and we can consider the atmosphere to be a homogenous mixture of gases with a constant molecular weight.
+
+</p><p>Below 120 km, our models will employ the same method and equations as described in the section <i>Atmospheric Modeling, Part I – Homosphere</i>.</p>
+
+<p><i>Adopted Constants</i></p>
+
+<p>The following constants are adopted for the purposes of computation.</p>
+
+<p></p><dd>R* = 8314.4621 J/kg-K
+<br></dd><dd>k = 1.3806488×10<sup>-23</sup> J/K
+<br></dd><dd>N<sub>A</sub> = 6.0221413×10<sup>-26</sup> kmol<sup>-1</sup>
+<br></dd><dd>g<sub>o</sub> = 3.7156 m/s<sup>2</sup>
+<br></dd><dd>g<sub>o</sub>' = 3.7156 (m/s)<sup>2</sup>/m'
+<br></dd><dd>r<sub>o</sub> = 3389.51 km
+<br></dd><dd>M<sub>o</sub> = 43.49 kg/kmol
+<br></dd><dd>P<sub>o</sub> = 610.5 Pa</dd><p></p>
+
+<p>Since Mars has no oceans, the term "sea level" has no meaning. We must, therefore, define some other arbitrary zero-elevation level or <i>datum</i> for mapping the surface. The datum for Mars is arbitrarily defined in terms of a constant atmospheric pressure, which has been chosen as 610.5 Pa, on the basis that below this pressure liquid water can never be stable. That is, the value of <i>P<sub>o</sub></i> is defined as 610.5 Pa.</p>
+
+<p>For the value of r<sub>o</sub> we select Mars' volumetric radius, which is derived from an equatorial radius of 3396.19 km and a polar radius of 3376.20 km. This value of r<sub>o</sub> corresponds to a geocentric latitude of 35.2 degrees on the reference ellipsoid, which is ideal as this is midway between the latitudes of the two Viking landers. The datum-level acceleration of gravity <i>g<sub>o</sub></i> is calculated for this latitude and takes into account both gravitational attraction and centrifugal force.</p>
+
+<p><b>0 km to 120 km</b></p>
+
+<p>The first step is to develop temperature-height profiles for our dayside and nightside models. After converting the given values of <i>z</i> to <i>h</i>, we plot <i>h</i>  versus <i>T<sub>M</sub></i> for Viking 1, Viking 2 and Mars Pathfinder. We then look for a series of line segments that best fits the data points. To minimize the number of line segments, we try to match general patterns in the data rather than trying to account for every observed change in gradient. We decide on the following, where each temperature-height profile consists of nine line segments.</p>
+
+<p></p><center><img src="./Basic of Space Flight_ Atmospheric Models_files/figS3-2.gif" width="515" height="675"></center><p></p>
+
+<p>Tables 11 and 12 give the reference levels and gradients for our two temperature-height profiles. The reference-level value of <i>P<sub>b</sub></i> at <i>b</i> = 0 is the defined value <i>P<sub>o</sub></i> = 610.5 Pa, while the values of <i>T<sub>M,b</sub></i> at <i>b</i> = 0 are found to be 228.5 K for the dayside and 198.0 K for the nightside.</p>
+
+<p></p><center><table><tbody><tr><td>
+
+<table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="3"><font size="2"><b>Table 11<br>Dayside</b><br>The defined reference levels and gradients of<br> the linearly segmented temperature-height profile<br>from the surface to 120 geometric kilometers</font></td>
+  </tr>
+  <tr align="center">
+    <td width="28%"><font size="2">Subscript<br>b</font></td>
+    <td width="36%"><font size="2">Geopotential<br>height, h<sub>b</sub><br>(km')</font></td>
+    <td width="36%"><font size="2">Molecular-scale<br>temperature<br>gradient, L<sub>M,b</sub><br>(K/km')</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">0</font></td>
+    <td><font size="2">0</font></td>
+    <td><font size="2">–1.80</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">1</font></td>
+    <td><font size="2">39</font></td>
+    <td><font size="2">0.00</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">2</font></td>
+    <td><font size="2">48</font></td>
+    <td><font size="2">–2.35</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">3</font></td>
+    <td><font size="2">55</font></td>
+    <td><font size="2">+0.65</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">4</font></td>
+    <td><font size="2">66</font></td>
+    <td><font size="2">–2.50</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">5</font></td>
+    <td><font size="2">75</font></td>
+    <td><font size="2">+2.50</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">6</font></td>
+    <td><font size="2">84</font></td>
+    <td><font size="2">0.00</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">7</font></td>
+    <td><font size="2">95</font></td>
+    <td><font size="2">–1.40</font></td>
+  </tr>
+    
+  <tr align="center">
+    <td><font size="2">8</font></td>
+    <td><font size="2">105</font></td>
+    <td><font size="2">–0.65</font></td>
+  </tr>
+<tr align="center">
+    <td><font size="2">9</font></td>
+    <td><font size="2">115.897</font></td>
+    <td></td>
+  </tr>
+</tbody></table>
+
+</td><td width="50"></td><td>
+
+<table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="3"><font size="2"><b>Table 12<br>Nightside</b><br>The defined reference levels and gradients of<br> the linearly segmented temperature-height profile<br>from the surface to 120 geometric kilometers</font></td>
+  </tr>
+  <tr align="center">
+    <td width="28%"><font size="2">Subscript<br>b</font></td>
+    <td width="36%"><font size="2">Geopotential<br>height, h<sub>b</sub><br>(km')</font></td>
+    <td width="36%"><font size="2">Molecular-scale<br>temperature<br>gradient, L<sub>M,b</sub><br>(K/km')</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">0</font></td>
+    <td><font size="2">0</font></td>
+    <td><font size="2">–2.00</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">1</font></td>
+    <td><font size="2">8.5</font></td>
+    <td><font size="2">+1.90</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">2</font></td>
+    <td><font size="2">16</font></td>
+    <td><font size="2">–1.70</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">3</font></td>
+    <td><font size="2">31</font></td>
+    <td><font size="2">–0.60</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">4</font></td>
+    <td><font size="2">48</font></td>
+    <td><font size="2">–3.65</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">5</font></td>
+    <td><font size="2">59</font></td>
+    <td><font size="2">0.00</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">6</font></td>
+    <td><font size="2">67</font></td>
+    <td><font size="2">–2.90</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">7</font></td>
+    <td><font size="2">76</font></td>
+    <td><font size="2">+4.30</font></td>
+  </tr>
+    
+  <tr align="center">
+    <td><font size="2">8</font></td>
+    <td><font size="2">84</font></td>
+    <td><font size="2">0.00</font></td>
+  </tr>
+<tr align="center">
+    <td><font size="2">9</font></td>
+    <td><font size="2">115.897</font></td>
+    <td></td>
+  </tr>
+</tbody></table>
+
+</td></tr></tbody></table></center><p></p>
+
+<p>Given the above set of values and definitions, the functions <i>T<sub>M</sub>(h)</i> and <i>P(h)</i> are completely defined from the surface to a geometric altitude of 120 km (see Table 13).</p>
+
+<p>Since the atmosphere of Mars consists predominately of carbon dioxide, the specific heat ratio of Martian air is much more sensitive to changes in temperature than air on Earth. For altitudes below 120 km, a good approximation of &#947; can be found using,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(36)</i></font></td>
+<td><font size="2">&#947; = 0.000001409 T<sub>M</sub><sup>2</sup> – 0.001192 T<sub>M</sub> + 1.5175</font></td></tr></tbody></table></p>
+
+<p>Also note that since Mars has no oceans to fill its lowest elevations, there are large areas of the surface that lie below the vertical datum. It is not unusual for a spacecraft to land at a site that has a surface elevation of –2, –3 or even –4 km, which should be considered in any simulation.</p>
+
+<p></p><center><table border="3" cellpadding="5" cellspacing="1">
+  <tbody><tr>
+    <th align="center" colspan="3"><font size="3">Table 13<hr>Model of Martian Atmosphere, 0 to 120 km</font></th>
+  </tr>
+  <tr>
+    <th align="center"><font size="2">Geopotential<br>Altitude, h<br>(km')</font></th>
+    <th align="center"><font size="2">Molecular-Scale<br>Temperature, T<sub>M</sub><br>(K)</font></th>
+    <th align="center"><font size="2">Pressure, P<br>(Pa)</font></th>
+  </tr>
+  <tr>
+    <th align="center" colspan="3"><font size="2">Dayside : Summer : 20-50<sup>o</sup>N</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">(–8)-39</font></td>
+    <td align="center"><font size="2">228.50 – 1.80 × h</font></td>
+    <td align="center"><font size="2">610.5 × [228.50 / (228.50 – 1.80 × h)] <sup>(19.435 / –1.80)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">39-48</font></td>
+    <td align="center"><font size="2">158.30</font></td>
+    <td align="center"><font size="2">11.6025 × EXP[–19.435 × (h – 39) / 158.30] </font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">48-55</font></td>
+    <td align="center"><font size="2">271.10 – 2.35 × h</font></td>
+    <td align="center"><font size="2">3.84305 × [158.30 / (158.30 – 2.35 × (h – 48))] <sup>(19.435 / –2.35)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">55-66</font></td>
+    <td align="center"><font size="2">106.10 + 0.65 × h</font></td>
+    <td align="center"><font size="2">1.55091 × [141.85 / (141.85 + 0.65 × (h – 55))] <sup>(19.435 / 0.65)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">66-75</font></td>
+    <td align="center"><font size="2">314.00 – 2.50 × h</font></td>
+    <td align="center"><font size="2">0.356464 × [149.00 / (149.00 – 2.50 × (h – 66))] <sup>(19.435 / –2.50)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">75-84</font></td>
+    <td align="center"><font size="2">–61.00 + 2.50 × h</font></td>
+    <td align="center"><font size="2">0.0998430 × [126.50 / (126.50 + 2.50 × (h – 75))] <sup>(19.435 / 2.50)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">84-95</font></td>
+    <td align="center"><font size="2">149.00</font></td>
+    <td align="center"><font size="2">0.0279653 × EXP[–19.435 × (h – 84) / 149.00]</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">95-105</font></td>
+    <td align="center"><font size="2">282.00 – 1.40 × h</font></td>
+    <td align="center"><font size="2">0.00666032 × [149.00 / (149.00 – 1.40 × (h – 95))] <sup>(19.435 / –1.40)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">105-115.897</font></td>
+    <td align="center"><font size="2">203.25 – 0.65 × h</font></td>
+    <td align="center"><font size="2">0.00169282 × [135.00 / (135.00 – 0.65 × (h – 105))] <sup>(19.435 / –0.65)</sup></font></td>
+  </tr>
+  <tr>
+    <th align="center" colspan="3"><font size="2">Nightside : Summer : 20<sup>o</sup>N</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">(–8)-8.5</font></td>
+    <td align="center"><font size="2">198.00 – 2.00 × h</font></td>
+    <td align="center"><font size="2">610.5 × [198.00 / (198.00 – 2.00 × h)] <sup>(19.435 / –2.00)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">8.5-16</font></td>
+    <td align="center"><font size="2">164.85 + 1.90 × h</font></td>
+    <td align="center"><font size="2">255.172 × [181.00 / (181.00 + 1.90 × (h – 8.5))] <sup>(19.435 / 1.90)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">16-31</font></td>
+    <td align="center"><font size="2">222.45 – 1.70 × h</font></td>
+    <td align="center"><font size="2">117.537 × [195.25 / (195.25 – 1.70 × (h – 16))] <sup>(19.435 / – 1.70)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">31-48</font></td>
+    <td align="center"><font size="2">188.35 – 0.60 × h</font></td>
+    <td align="center"><font size="2">23.7302 × [169.75 / (169.75 – 0.60 × (h – 31))] <sup>(19.435 / –0.60)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">48-59</font></td>
+    <td align="center"><font size="2">334.75 – 3.65 × h</font></td>
+    <td align="center"><font size="2">3.18820 × [159.55 / (159.55 – 3.65 × (h – 48))] <sup>(19.435 / –3.65)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">59-67</font></td>
+    <td align="center"><font size="2">119.40</font></td>
+    <td align="center"><font size="2">0.681102 × EXP[–19.435 × (h – 59) / 119.40]</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">67-76</font></td>
+    <td align="center"><font size="2">313.70 – 2.90 × h</font></td>
+    <td align="center"><font size="2">0.185218 × [119.40 / (119.40 – 2.90 × (h – 67))] <sup>(19.435 / –2.90)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">76-84</font></td>
+    <td align="center"><font size="2">–233.50 + 4.30 × h</font></td>
+    <td align="center"><font size="2">0.0354632 × [93.30 / (93.30 + 4.30 × (h – 76))] <sup>(19.435 / 4.30)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">84-115.897</font></td>
+    <td align="center"><font size="2">127.70</font></td>
+    <td align="center"><font size="2">0.00858406 × EXP[–19.435 × (h – 84) / 127.70]</font></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="4"><font size="2"><b>Density, &#961; (kg/m<sup>3</sup>) = P/(RT<sub>M</sub>)<br>Speed of sound, C (m/s) = (&#947;RT<sub>M</sub>)<sup>1/2</sup></b><br><hr>Specific gas constant, R = 191.181 J/kg-K<br>Specific heat ratio, &#947; = 0.000001409 T<sub>M</sub><sup>2</sup> – 0.001192 T<sub>M</sub> + 1.5175</font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p><b>120 km to 300 km</b></p>
+
+<p>The only <i>in situ</i> measurements of Mars' upper atmosphere come from the Viking 1 and Viking 2 mission descents in 1976. Neutral mass spectrometers carried on the aeroshells of Viking 1 and 2 indicate that carbon dioxide is the major constituent of the Martian atmosphere in the altitude range of 120 to 200 km. The atmosphere contains detectable concentrations of nitrogen, argon, carbon monoxide, molecular oxygen, atomic oxygen, and nitric oxide. The Viking measurements are shown in Figure 3, with scale height extrapolations to 300 km.</p>
+
+<p></p><center><img src="./Basic of Space Flight_ Atmospheric Models_files/figS3-3.gif" width="700" height="445" border="1">
+<br><table width="590" border="0"><tbody><tr><td align="center"><font size="2"><b>Figure 3</b> — Upper thermospheric fits of the neutral measurements made by Viking 1 &amp; 2 descent missions in 1976 (extended to 300 km) [Source: <i>Hanson et al.</i> 1977].</font></td></tr></tbody></table></center><p></p>
+
+<p>Since our previous "dayside" model is also based on measurements from Viking 1 and 2, we can match the dayside model to the data in Figure 3 to create one complete model that extends from the surface to an altitude of 300 km.</p>
+
+<p>First, we use the equations in Table 13 to compute the boundary-level conditions at a geometric altitude of 120 km (<i>h<sub>9</sub></i> = 115.897 km'),</p>
+
+<p></p><dd>T<sub>M,9</sub> = 127.917 K
+<br></dd><dd>P<sub>9</sub> = 0.000337895 Pa
+<br></dd><dd>&#961;<sub>9</sub> = 1.38169×10<sup>-8</sup> kg/m<sup>3</sup></dd><p></p>
+
+<p>From Figure 3 we estimate the fractional volume <i>F<sub>i</sub></i> of the individual gas species at 120 km. Using equation (24) we compute the mean molecular weight <i>M</i> of the gas mixture, then the total number density <i>N</i> using equation (5). Finally, the number density <i>n<sub>i</sub></i> of each gas species is found by <i>n<sub>i</sub> = F<sub>i</sub> × N</i>.</p>
+
+<p></p><center><table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="4"><font size="2"><b>Table 14</b><br>Molecular weight, fractional volume composition, and<br>number densities of various species at 120 km altitude</font></td>
+  </tr>
+  <tr align="center">
+    <td width="21%"><font size="2">Species</font></td>
+    <td width="25%"><font size="2">M<sub>i</sub> (kg/kmol)</font></td>
+    <td width="24%"><font size="2">F<sub>i</sub></font></td>
+    <td width="30%"><font size="2">n<sub>i</sub> (m<sup>-3</sup>)</font></td></tr>
+  <tr align="center">
+    <td><font size="2">CO<sub>2</sub></font></td>
+    <td><font size="2">44.00995</font></td>
+    <td><font size="2">0.96850</font></td>
+    <td><font size="2">1.8550×10<sup>17</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">N<sub>2</sub></font></td>
+    <td><font size="2">28.0134</font></td>
+    <td><font size="2">0.01990</font></td>
+    <td><font size="2">3.8116×10<sup>15</sup></font></td>
+  </tr><tr align="center">
+    <td><font size="2">O</font></td>
+    <td><font size="2">15.9994</font></td>
+    <td><font size="2">0.00585</font></td>
+    <td><font size="2">1.1205×10<sup>15</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">CO</font></td>
+    <td><font size="2">28.0101</font></td>
+    <td><font size="2">0.00425</font></td>
+    <td><font size="2">8.1404×10<sup>14</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">O<sub>2</sub></font></td>
+    <td><font size="2">31.9988</font></td>
+    <td><font size="2">0.00143</font></td>
+    <td><font size="2">2.7390×10<sup>14</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">NO</font></td>
+    <td><font size="2">30.0061</font></td>
+    <td><font size="2">0.00007</font></td>
+    <td><font size="2">1.3408×10<sup>13</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td colspan="4" height="4"></td>
+  </tr><tr align="center">
+    <td><font size="2"></font></td>
+    <td><font size="2">M = 43.4416</font></td>
+    <td><font size="2"></font></td>
+    <td><font size="2">N = 1.9154×10<sup>17</sup></font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p>Having defined the number densities at the boundary-level, we now need the temperature-height profile for altitudes over 120 km. We first we notice that the mean molecular weight at 120 km, <i>M</i> = 43.4416 kg/kmol, is slightly less than our defined surface level value of <i>M<sub>o</sub></i> = 43.49 kg/kmol. Therefore, at <i>z<sub>9</sub></i> = 120 km we find that <i>T<sub>9</sub></i> = 127.775 K.</p>
+
+<p>Figure 4 compares day and night temperature profiles, as well as their variations with time. Present and past Martian thermospheres see their natural temperature increase with altitude first, and then become isothermal above some level. This level is reached at lower altitudes at night compared to day (dashed versus solid lines), and at present to past. Neutral thermospheric temperatures are found to be higher in the past.</p>
+
+<p></p><center><img src="./Basic of Space Flight_ Atmospheric Models_files/figS3-4.gif" width="500" height="500" border="1">
+<br><table width="400" border="0"><tbody><tr><td align="center"><font size="2"><b>Figure 4</b> — Profile of the neutral temperature in the Martian upper thermosphere (120 to 300 km altitude) at the equatorial noon (0<sup>o</sup> SZA) for epoch 1, 2 and 3 (blue, green and red lines, respectively) for low solar conditions.</font></td></tr></tbody></table></center><p></p>
+
+<p>From Figure 4 we see that the temperature of the Martian thermosphere takes the exponential form of equation (25),</p>
+
+<p></p><dd>T = T<sub>&#8734;</sub> – (T<sub>&#8734;</sub> – T<sub>9</sub>) × EXP(–&#955;&#958;) , &nbsp; where &#958; = (z – z<sub>9</sub>) × (r<sub>o</sub> + z<sub>9</sub>) / (r<sub>o</sub> + z)</dd><p></p>
+
+<p>While <i>r<sub>o</sub></i>, <i>z<sub>9</sub></i> and <i>T<sub>9</sub></i> are defined, <i>T<sub>&#8734;</sub></i> and &#955; are as yet unknown.</p>
+
+<p>To generate a model that replicates as closely as possible the number densities shown in Figure 3, it is found by trial and error that best results are obtained when,</p>
+
+<p></p><dd>T<sub>&#8734;</sub> = 200.0 K, &nbsp; &#955; = 0.0195</dd><p></p> 
+
+<p>With the information now at hand, we use the method described in the section <i>Atmospheric Modeling, Part II – Heterosphere</i> to compute the number densities of gas species in the Martian upper atmosphere. Since Figures 3 and 4 terminate at 300 km, we'll also stop at this altitude. The resulting equations are summarized in Table 15. Actual atmospheric conditions vary considerably depending on spatial, seasonal and solar cycle factors.</p>
+
+<p></p><center><table border="3" cellpadding="5" cellspacing="1">
+  <tbody><tr>
+    <th align="center" colspan="2"><font size="3">Table 15<hr>Model of Martian Atmosphere, 120 to 300 km</font></th>
+  </tr>
+  <tr>
+    <th align="center"><font size="2">Geocentric<br>Altitude, z<br>(km)</font></th>
+    <th align="center"><font size="2">Functions:<br>T(z), P(z) and &#961;(z)</font></th>
+  </tr>
+  <tr>
+    <th align="center" colspan="2"><font size="2">Temperature (K)</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">120-300</font></td>
+    <td align="center"><font size="2">200 – 72.225 × EXP(–0.0195 × &#958;)<br>where &#958; = (z – 120) × (3389.51 + 120) / (3389.51 + z)</font></td>
+  </tr>
+  <tr>
+    <th align="center" colspan="2"><font size="2">Pressure (Pa)</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">120-200</font></td>
+    <td align="center"><font size="2">EXP( –4.18520E-10 z<sup>5</sup> + 3.45846E-07 z<sup>4</sup> – 1.13352E-04 z<sup>3</sup> + 0.0188613 z<sup>2</sup> – 1.71718 z + 61.10381 )</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">200-300</font></td>
+    <td align="center"><font size="2">EXP( –4.83452E-11 z<sup>5</sup> + 6.96178E-08 z<sup>4</sup> – 4.03197E-05 z<sup>3</sup> + 0.0117655 z<sup>2</sup> – 1.76494 z + 93.67154 )</font></td>
+  </tr>
+  <tr>
+    <th align="center" colspan="2"><font size="2">Density (kg/m<sup>3</sup>)</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">120-200</font></td>
+    <td align="center"><font size="2">EXP( –2.55314E-10 z<sup>5</sup> + 2.31927E-07 z<sup>4</sup> – 8.33206E-05 z<sup>3</sup> + 0.0151947 z<sup>2</sup> – 1.52799 z + 48.69659 )</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">200-300</font></td>
+    <td align="center"><font size="2">EXP( 2.65472E-11 z<sup>5</sup> – 2.45558E-08 z<sup>4</sup> + 6.31410E-06 z<sup>3</sup> + 4.73359E-04 z<sup>2</sup> – 0.443712 z + 23.79408 )</font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p><a name="venus">
+<font size="+1">Atmosphere of Venus</font></a></p><a name="venus">
+
+<p><i>Overview</i></p>
+
+<p>Although Venus is quite similar to Earth in size and distance from the Sun, its atmosphere is strikingly different from Earth's. The atmosphere of Venus is much more massive, with a total mass 93 times that of Earth, and is composed primarily of carbon dioxide, along with some nitrogen and other trace gases. A hydrosphere is absent on Venus — there is a very low abundance of water in any form. These compositional differences point to a drastically different evolution of the Venusian and terrestrial atmospheres through geological history.</p>
+
+<p>The current state of the Venusian atmosphere also shows great differences from that of Earth. There is a strong greenhouse effect that raises the surface temperature to about 735 K, despite the fact that cloud cover strongly reflects sunlight so that less heat flux is absorbed on Venus than on Earth. The Venusian clouds are featureless and opaque in the visible. The clouds are composed of droplets of sulfuric acid, produced by photochemistry in the upper atmosphere.</p>
+
+<p>The solid body of Venus rotates very slowly, with a period of 243 days, in the opposite direction to the general rotation of the solar system. The general circulation of the Venus atmosphere is dominated by rotation of the atmosphere in the same direction as that of the solid planet but increasing in speed with height from the surface up to the cloud tops. It reaches maximum speed (~100 m/s) near the cloud tops, where the rotation period is about 4 days. Atmospheric dynamics are thus very different on Venus than on Earth.</p>
+
+<p>The length of a solar day on Venus is 116.75 Earth days. In spite of this long time, there is very little day-night temperature contrast in the lower atmosphere. There is also very little latitudinal temperature contrast in the lower atmosphere of Venus. Within the clouds, however, there is a latitudinal temperature gradient, cooler toward the poles by about 20 K. At higher altitude the temperature gradient reverses.</p>
+
+<p>The temperature-height profile of Venus gives rise to a troposphere, a mesosphere, and a thermosphere. The troposphere, which contains about 99% of the atmosphere by mass, begins at the surface and extends upwards to about 65 km. The mesosphere of Venus extends from about 65 km to 120 km in altitude, and the thermosphere begins at around 120 km, eventually reaching the upper limit of the atmosphere (exosphere) at about 220 km to 350 km.</p>
+
+<p></p><center>
+<table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="2"><font size="2"><b>Table 16</b><br>Composition of the Venusian<br>lower atmosphere (&lt; 100 km)</font></td>
+  </tr>
+  <tr align="center">
+    <td width="45%"><font size="2">Gas species</font></td>
+    <td width="55%"><font size="2">Abundance</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">CO<sub>2</sub></font></td>
+    <td><font size="2">96.5%</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">N<sub>2</sub></font></td>
+    <td><font size="2">3.5%</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">SO<sub>2</sub></font></td>
+    <td><font size="2">150 ppm</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Ar</font></td>
+    <td><font size="2">70 ppm</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">H<sub>2</sub>O</font></td>
+    <td><font size="2">20 ppm</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">CO</font></td>
+    <td><font size="2">17 ppm</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">He</font></td>
+    <td><font size="2">12 ppm</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">Ne</font></td>
+    <td><font size="2">7 ppm</font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p><i>Atmospheric Model - Introduction</i></p>
+
+</a><p><a name="venus">The temperature of Venus' lower atmosphere varies little globally, therefore we can make due with a single model of this height region. The temperature-height profile for 0 km to 100 km will be based on the tabulated values found </a><a href="http://www.braeunig.us/space/atmvenus.htm#table" target="_new">here</a>. The data are based on measurements made by Pioneer Venus mission's atmospheric probes and other spacecraft.</p>
+
+<p>At higher altitudes there is significant diurnal variation, however a model of the mean atmosphere will suit many of our needs. For example, a spacecraft in a low circular orbit will repeatedly cycle through day and night conditions, thus the total effect of the atmosphere can be predicted using a mean model.</p>
+
+<p>For altitudes over 100 km, we will base our equations on the atmospheric model of <a href="http://www.braeunig.us/space/pdf/Bougher.pdf" target="_new">Bougher et al., 1986</a>. 
+
+</p><p><i>Adopted Constants</i></p>
+
+<p>The following constants are adopted for the purposes of computation.</p>
+
+<p></p><dd>R* = 8314.4621 J/kg-K
+<br></dd><dd>k = 1.3806488×10<sup>-23</sup> J/K
+<br></dd><dd>N<sub>A</sub> = 6.0221413×10<sup>-26</sup> kmol<sup>-1</sup>
+<br></dd><dd>g<sub>o</sub> = 8.8700 m/s<sup>2</sup>
+<br></dd><dd>g<sub>o</sub>' = 8.8700 (m/s)<sup>2</sup>/m'
+<br></dd><dd>r<sub>o</sub> = 6051.8 km
+<br></dd><dd>M<sub>o</sub> = 43.45 kg/kmol
+<br></dd><dd>P<sub>o</sub> = 9.332 MPa (92.10 atm)
+<br></dd><dd>T<sub>o</sub> = 735 K</dd><p></p>
+
+<p>Since the Venus' period of rotation is so slow (243 days), there is insignificant polar flattening and centrifugal forces. We can, therefore, consider g<sub>o</sub> and r<sub>o</sub> constant across the globe.</p>
+
+<p><b>0 km to 100 km</b></p>
+
+<p>From the previously referenced <a href="http://www.braeunig.us/space/atmvenus.htm#table" target="_new">table</a> of geometric height and temperature, we estimate a series of line segments to describe the temperature-geopotential height profile. The selected reference levels and gradients are given in Table 17. The values of <i>L<sub>M,4</sub></i> and <i>L<sub>M,5</sub></i> are selected so that the computed properties at the 100 km boundary level exactly match those of the <i>Bougher et al.</i> model. The reference-level values of <i>T<sub>M,b</sub></i> and <i>P<sub>b</sub></i> at <i>b</i> = 0 are the defined values <i>T<sub>o</sub></i> = 735 K and <i>P<sub>o</sub></i> = 9,332,000 Pa.</p> 
+
+<p></p><center>
+<table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="3"><font size="2"><b>Table 17</b><br>The defined reference levels and gradients of<br> the linearly segmented temperature-height profile<br>from the surface to 100 geometric kilometers</font></td>
+  </tr>
+  <tr align="center">
+    <td width="28%"><font size="2">Subscript<br>b</font></td>
+    <td width="36%"><font size="2">Geopotential<br>height, h<sub>b</sub><br>(km')</font></td>
+    <td width="36%"><font size="2">Molecular-scale<br>temperature<br>gradient, L<sub>M,b</sub><br>(K/km')</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">0</font></td>
+    <td><font size="2">0</font></td>
+    <td><font size="2">–7.63</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">1</font></td>
+    <td><font size="2">15.5</font></td>
+    <td><font size="2">–8.47</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">2</font></td>
+    <td><font size="2">36.5</font></td>
+    <td><font size="2">–6.91</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">3</font></td>
+    <td><font size="2">49.5</font></td>
+    <td><font size="2">–9.72</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">4</font></td>
+    <td><font size="2">58</font></td>
+    <td><font size="2">–3.27687</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">5</font></td>
+    <td><font size="2">87</font></td>
+    <td><font size="2">–0.499214</font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">6</font></td>
+    <td><font size="2">98.3745</font></td>
+    <td></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p>Given the above set of values and definitions, the functions <i>T<sub>M</sub>(h)</i> and <i>P(h)</i> are completely defined from the surface to a geometric altitude of 100 km (see Table 18).</p>
+
+<p>Like Mars, the high carbon dioxide content of the Venusian atmosphere results in the specific heat ratio &#947; being highly dependent on temperature. For altitudes below 100 km, the value of &#947; is estimated using,</p>
+
+<p><table border="0"><tbody><tr><td width="75"><font size="2"><i>(37)</i></font></td>
+<td><font size="2">&#947; = –8.175E-10 T<sub>M</sub><sup>3</sup> + 0.000001665 T<sub>M</sub><sup>2</sup> – 0.001233 T<sub>M</sub> + 1.5336</font></td></tr></tbody></table></p>
+
+<p></p><center><table border="3" cellpadding="5" cellspacing="1">
+  <tbody><tr>
+    <th align="center" colspan="3"><font size="3">Table 18<hr>Model of Venusian Atmosphere, 0 to 100 km</font></th>
+  </tr>
+  <tr>
+    <th align="center"><font size="2">Geopotential<br>Altitude, h<br>(km')</font></th>
+    <th align="center"><font size="2">Molecular-Scale<br>Temperature, T<sub>M</sub><br>(K)</font></th>
+    <th align="center"><font size="2">Pressure, P<br>(Pa)</font></th>
+  </tr><tr>
+    <td align="center"><font size="2">(–3)-15.5</font></td>
+    <td align="center"><font size="2">735.00 – 7.63 × h</font></td>
+    <td align="center"><font size="2">9332000 × [735.000 / (735.000 – 7.63 × h)] <sup>(46.353 / –7.63)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">15.5-36.5</font></td>
+    <td align="center"><font size="2">748.02 – 8.47 × h</font></td>
+    <td align="center"><font size="2">3214540 × [616.735 / (616.735 – 8.47 × (h – 15.5))] <sup>(46.353 / –8.47)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">36.5-49.5</font></td>
+    <td align="center"><font size="2">691.08 – 6.91 × h</font></td>
+    <td align="center"><font size="2">499392 × [438.865 / (438.865 – 6.91 × (h – 36.5))] <sup>(46.353 / –6.91)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">49.5-58</font></td>
+    <td align="center"><font size="2">830.175 – 9.72 × h</font></td>
+    <td align="center"><font size="2">107458 × [349.035 / (349.035 – 9.72 × (h – 49.5))] <sup>(46.353 / –9.72)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">58-87</font></td>
+    <td align="center"><font size="2">456.4735 – 3.27687 × h</font></td>
+    <td align="center"><font size="2">29634.9 × [266.415 / (266.415 – 3.27687 × (h – 58))] <sup>(46.353 / –3.27687)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">87-98.3745</font></td>
+    <td align="center"><font size="2">214.8174 – 0.499214 × h</font></td>
+    <td align="center"><font size="2">57.7754 × [171.386 / (171.386 – 0.499214 × (h – 87))] <sup>(46.353 / –0.499214)</sup></font></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="4"><font size="2"><b>Density, &#961; (kg/m<sup>3</sup>) = P/(RT<sub>M</sub>)<br>Speed of sound, C (m/s) = (&#947;RT<sub>M</sub>)<sup>1/2</sup></b><br><hr>Specific gas constant, R = 191.357 J/kg-K<br>Specific heat ratio, &#947; = –8.175E-10 T<sub>M</sub><sup>3</sup> + 0.000001665 T<sub>M</sub><sup>2</sup> – 0.001233 T<sub>M</sub> + 1.5336</font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p><b>100 km to 300 km</b></p>
+
+<p>Using the equations in Table 18, we find the boundary-level conditions at a geometric altitude of 100 km (<i>h<sub>6</sub></i> = 98.3745 km'),</p>
+
+<p></p><dd>T<sub>M,6</sub> = 165.7075 K
+<br></dd><dd>P<sub>6</sub> = 2.52970 Pa
+<br></dd><dd>&#961;<sub>6</sub> = 7.97779×10<sup>-5</sup> kg/m<sup>3</sup></dd><p></p>
+
+<p>Above 100 km, our model is based on that of <a href="http://www.braeunig.us/space/pdf/Bougher.pdf" target="_new">Bougher et al., 1986</a>. The Bougher model gives values of scale height, total number density, relative number densities (fractional volume) of O and CO, and temperature, at intervals of 5 km for five different values of solar zenith angle (SZA), ranging from 0<sup>o</sup> (noon) to 180<sup>o</sup> (midnight). Our model will average the values of the five SZA to give a global mean. Although values for SZA = 0<sup>o</sup> extend to an altitude of 210 km, the others stop short of this height. The first thing we want to do is extrapolate all sets of values to an altitude of 210 km.</p>
+
+<p>To do this we need to know the number densities of the individual atmospheric constituents. We're given the total number density <i>N</i> and the fractional volume of O and CO. We can assume the balance of the atmosphere consists of CO<sub>2</sub> and N<sub>2</sub> in some unknown proportion. If the mean molecular weight at some point is known, we can compute the required fractional volumes of CO<sub>2</sub> and N<sub>2</sub> at that point. Since <i>H</i> and <i>T</i> are given, and <i>g</i> is a function of altitude, using equation 10 we can compute <i>M</i>. We then have,</p>
+
+<p></p><dd>M = 44.00995 × F<sub>CO<sub>2</sub></sub> + 28.0134 × F<sub>N<sub>2</sub></sub> + 28.0101 × F<sub>CO</sub> + 15.9994 × F<sub>O</sub>
+<br></dd><dd>where &#931;F<sub>i</sub> = 1</dd><p></p>
+
+<p>With two equations and two unknowns, we calculate the fractional volumes of CO<sub>2</sub> and N<sub>2</sub>. With all values of <i>F<sub>i</sub></i> now known, the number densities of the individual species are found using <i>n<sub>i</sub> = F<sub>i</sub> × N</i>.</p>
+
+<p>Using the method described in the section <i>Atmospheric Modeling, Part II – Heterosphere</i>, we extrapolate all the Bougher et al. data sets to an altitude of 210 km. We then average the number densities and temperature for each interval of height. Table 19, for example, gives the mean abundance of each species at the boundary-level altitude of 100 km. The average value of <i>T</i> at 100 km is 161.860 K.</p>
+
+<p></p><center><table border="1" cellpadding="4" bordercolor="#000000" style="border-collapse: collapse">
+  <tbody><tr align="center">
+    <td colspan="4"><font size="2"><b>Table 19</b><br>Molecular weight, fractional volume composition, and<br>number densities of various species at 100 km altitude</font></td>
+  </tr>
+  <tr align="center">
+    <td width="21%"><font size="2">Species</font></td>
+    <td width="25%"><font size="2">M<sub>i</sub> (kg/kmol)</font></td>
+    <td width="24%"><font size="2">F<sub>i</sub></font></td>
+    <td width="30%"><font size="2">n<sub>i</sub> (m<sup>-3</sup>)</font></td></tr>
+  <tr align="center">
+    <td><font size="2">CO<sub>2</sub></font></td>
+    <td><font size="2">44.00995</font></td>
+    <td><font size="2">0.902050</font></td>
+    <td><font size="2">1.02112×10<sup>21</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">N<sub>2</sub></font></td>
+    <td><font size="2">28.0134</font></td>
+    <td><font size="2">0.096996</font></td>
+    <td><font size="2">1.0980×10<sup>20</sup></font></td>
+  </tr><tr align="center">
+    <td><font size="2">CO</font></td>
+    <td><font size="2">28.0101</font></td>
+    <td><font size="2">0.000793</font></td>
+    <td><font size="2">8.9780×10<sup>17</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td><font size="2">O</font></td>
+    <td><font size="2">15.9994</font></td>
+    <td><font size="2">0.000161</font></td>
+    <td><font size="2">1.8200×10<sup>17</sup></font></td>
+  </tr>
+  <tr align="center">
+    <td colspan="4" height="4"></td>
+  </tr><tr align="center">
+    <td><font size="2"></font></td>
+    <td><font size="2">M = 42.4412</font></td>
+    <td><font size="2"></font></td>
+    <td><font size="2">N = 1.1320×10<sup>21</sup></font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p>From Table 19 we see that <i>M</i> &lt; <i>M<sub>o</sub></i>. Recalling that <i>T<sub>M,6</sub></i> = 165.7075 K and using equation (16), we find that <i>T<sub>6</sub></i> = 161.860 K, which matches the average of the Bougher et al. values for that height. Given <i>T<sub>6</sub></i> and the values in Table 19, and using equations (4) and (5), we find that the computed values of <i>P<sub>6</sub></i> and <i>&#961;<sub>6</sub></i> match those previously computed using the equations in Table 18, thereby confirming we have a smooth transition at <i>z<sub>6</sub></i> = 100 km.</p>
+
+<p>The average values of number density and temperature derived from the Bougher et al. model extend to an altitude of 210 km. The 210 km values are extrapolated further to an altitude of 300 km to cover a wider range of potential orbits. We extrapolate no further because we're getting into an unknown region. It is certain that lighter species (helium and hydrogen), which were ignored at low altitude, are found in greater proportion at high altitudes.</p>
+
+<p>It is found that temperature above an altitude of 150 km follows the basic exponential form of equation (25). Between 100 km and 150 km, temperature is computed using a series of polynomials fitted to the tabulated values of temperature. Likewise, equations for pressure and temperature are derived from tabulated values.</p>
+
+<p></p><center><table border="3" cellpadding="5" cellspacing="1">
+  <tbody><tr>
+    <th align="center" colspan="2"><font size="3">Table 20<hr>Model of Venusian Atmosphere, 100 to 300 km</font></th>
+  </tr>
+  <tr>
+    <th align="center"><font size="2">Geocentric<br>Altitude, z<br>(km)</font></th>
+    <th align="center"><font size="2">Functions:<br>T(z), P(z) and &#961;(z)</font></th>
+  </tr>
+  <tr>
+    <th align="center" colspan="2"><font size="2">Temperature (K)</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">100-115</font></td>
+    <td align="center"><font size="2">–0.00504 z<sup>3</sup> + 1.6112 z<sup>2</sup> – 171.678 z + 6257.66</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">115-135</font></td>
+    <td align="center"><font size="2">0.00001733333 z<sup>4</sup> – 0.007826667 z<sup>3</sup> + 1.375967 z<sup>2</sup> – 112.72633 z + 3795.74</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">135-150</font></td>
+    <td align="center"><font size="2">–0.00472 z<sup>3</sup> + 1.9952 z<sup>2</sup> – 278.41 z + 12991.22</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">150-300</font></td>
+    <td align="center"><font size="2">208.21 – 16.49 × EXP(–0.106428 × &#958;)<br>where &#958; = (z – 150) × (6051.8 + 150) / (6051.8 + z)</font></td>
+  </tr>
+  <tr>
+    <th align="center" colspan="2"><font size="2">Pressure (Pa)</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">100-140</font></td>
+    <td align="center"><font size="2">EXP( 1.255723E-06 z<sup>4</sup> – 5.579211E-04 z<sup>3</sup> + 0.09250745 z<sup>2</sup> – 7.058415 z + 214.0424 )</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">140-210</font></td>
+    <td align="center"><font size="2">EXP( –1.884212E-09 z<sup>5</sup> + 1.784462E-06 z<sup>4</sup> – 6.803835E-04 z<sup>3</sup> + 0.1308837 z<sup>2</sup> – 12.79816 z + 499.6816 )</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">210-300</font></td>
+    <td align="center"><font size="2">EXP( 4.489586E-09 z<sup>4</sup> – 4.899145E-06 z<sup>3</sup> + 0.002015526 z<sup>2</sup> – 0.4456979 z + 25.26467 )  </font></td></tr>
+  <tr>
+    <th align="center" colspan="2"><font size="2">Density (kg/m<sup>3</sup>)</font></th>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">100-140</font></td>
+    <td align="center"><font size="2">EXP( 9.776973E-07 z<sup>4</sup> – 4.431351E-04 z<sup>3</sup> + 0.07498141 z<sup>2</sup> – 5.886184 z + 174.7343 )</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">140-210</font></td>
+    <td align="center"><font size="2">EXP( –2.869772E-09 z<sup>5</sup> + 2.658564E-06 z<sup>4</sup> – 9.897302E-04 z<sup>3</sup> + 0.1856624 z<sup>2</sup> – 17.67973 z + 664.9583 )</font></td>
+  </tr>
+  <tr>
+    <td align="center"><font size="2">210-300</font></td>
+    <td align="center"><font size="2">EXP( 9.249815E-09 z<sup>4</sup> – 1.006456E-05 z<sup>3</sup> + 0.004115272 z<sup>2</sup> – 0.8247589 z + 39.32464 )</font></td>
+  </tr>
+</tbody></table></center><p></p>
+
+<p></p><hr size="5"><p></p>
+
+<center>
+<p>Compiled, edited and written in part by Robert A. Braeunig, 2014.
+<br><a href="http://www.braeunig.us/space/sources.htm">Bibliography</a></p>
+
+<form name="WebsiteDirectory">
+	<select name="WebsiteList">
+	<option selected="" value="index_top.htm">Home Page</option>
+	<option value="basics.htm">Basics of Space Flight</option>
+	<option value="propel.htm">&nbsp; - Rocket Propellants</option>
+	<option value="propuls.htm">&nbsp; - Rocket Propulsion</option>
+	<option value="launch.htm">&nbsp; - Aerodynamics</option>
+	<option value="orbmech.htm">&nbsp; - Orbital Mechanics</option>
+	<option value="interpl.htm">&nbsp; - Interplanetary Flight</option>
+	<option value="hardware.htm">Space Hardware</option>
+	<option value="systems.htm">&nbsp; - Spacecraft Systems</option>
+	<option value="specs.htm">&nbsp; - Vehicle Specifications</option>
+	<option value="launcher.htm">&nbsp; - Space Launch Vehicles</option>
+	<option value="missions.htm">Space Missions</option>
+	<option value="manned.htm">&nbsp; - Manned Space Flights</option>
+	<option value="planet.htm">&nbsp; - Interplanetary Spacecraft</option>
+	<option value="lunar.htm">&nbsp; - Lunar Spacecraft</option>
+	<option value="center.htm">World Space Centers</option>
+	<option value="timeline.htm">Space Milestones</option>
+	<option value="glossary.htm">Glossary</option>
+	<option value="sources.htm">Bibliography</option>
+	</select>
+	<input type="button" name="go" value="Go" onclick="window.location=document.WebsiteDirectory.WebsiteList.options[document.WebsiteDirectory.WebsiteList.selectedIndex].value" target="_blank">
+</form>
+
+<div align="center">
+  <table border="2" cellspacing="0" bordercolorlight="#FFFFFF" cellpadding="3" bordercolordark="#808080" style="border-collapse: collapse" bordercolor="#111111">
+    <tbody><tr>
+      <td width="50%">
+      <p align="center">
+      <a href="http://www.braeunig.us/space/interpl.htm" style="text-decoration: none; ">Back</a></p></td>
+      <td width="50%">
+      <p align="center">
+      <a href="http://www.braeunig.us/space/index_top.htm" style="text-decoration: none; ">Home</a></p></td>
+    </tr>
+  </tbody></table>
+</div>
+</center>
+
+</font>
+
+
+
+</body></html>

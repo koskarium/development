@@ -1,7 +1,7 @@
 % This code is to analyze atmosphere data ala MIL-310-HBK. 
-% This code will intake hourly data mined using Era5_datamanager.py.
+% This code will intake hourly data mined using era5_pipeline.py.
 % The city split is done with the previosuly mentioned python scrip that
-% uses cities.txt as a reference to what cities to pull the data from. 
+% uses cities.csv as a reference to what cities to pull the data from. 
 
 % Author: Kevin O. Negron
 % Email: kevin.o.negron.civ@us.navy.mil
@@ -15,159 +15,151 @@
 % 2026/02/15 This initial version uses mil310_generate_sample to run since we do not have the dataset available 
 
 %% ==========================================================
-%  Scan Directory and Create File Pointers
+% ERA5 MIL-310 Analysis
 % ===========================================================
 clear; clc;
 
-% Directory
+if isempty(gcp('nocreate'))
+    parpool;
+end
+
 dir_base = 'Era5/Cities';
 dir_post = 'Era5/Postprocess';
 
 if ~isfolder(dir_base)
-    error('--Directory not found: %s. Please ensure the Era5/Cities folder exists.', dir_base);
+    error('--Directory not found: %s', dir_base);
 end
 
 if ~isfolder(dir_post)
-    mkdir path_post
+    mkdir(dir_post)
 end
 
-path_base = fullfile(pwd,dir_base);
-path_post = fullfile(pwd,dir_post);
+path_post = fullfile(pwd, dir_post);
 
-% Find all relevant CSV files
+%% Scan Files
 file_pattern = fullfile(dir_base, 'ERA_*.csv');
 file_list = dir(file_pattern);
-file_pointers = table('Size', [length(file_list), 3], ...
-                      'VariableTypes', {'string', 'double', 'string'}, ...
-                      'VariableNames', {'City', 'Year', 'FilePath'});
 
-% Loop through files and parse names
-fprintf('--Scanning directory and building file map...\n');
+file_pointers = table('Size', [length(file_list), 3], ...
+    'VariableTypes', {'string', 'double', 'string'}, ...
+    'VariableNames', {'City', 'Year', 'FilePath'});
+
 for i = 1:length(file_list)
-    current_filename = file_list(i).name;
-    
-    % Use regular expressions to reliably extract city and year
-    current_split = split(extractBefore(current_filename,".csv"),"_");
-    
-    if ~isempty(current_split)
-        city_name = string(current_split{2});
-        year_val  = str2double(current_split{3});
-        full_path = fullfile(file_list(i).folder, current_filename);
-        
-        % Add the parsed info to our pointer table
-        file_pointers(i,:) = {city_name, year_val, full_path};
-    else
-        fprintf('----Warning: Skipping file with unexpected name format: %s\n', filename);
+    fname = file_list(i).name;
+    parts = split(extractBefore(fname, ".csv"), "_");
+
+    if numel(parts) >= 3
+        file_pointers(i,:) = {
+            string(parts{2}), ...
+            str2double(parts{3}), ...
+            fullfile(file_list(i).folder, fname)
+        };
     end
 end
 
-disp('--Successfully created file pointer table');
-
-
-%% ==========================================================
-%  Loop by City and Year to Analyze Data
-% ===========================================================
-fprintf('\n---- Starting Analysis Loop\n');
-
-% Get a list of unique cities from our table
 unique_cities = unique(file_pointers.City);
 
-% Iterate through each city 
-for i = 1:length(unique_cities)
-    current_city = unique_cities(i);
-    fprintf('------ Processing City: %s\n', current_city);
+% STORAGE FOR PARFOR
+results_all = cell(length(unique_cities),1);
 
-    % Make a dir for each forlder to store the post 
-    current_path_dir = fullfile(path_post,current_city);
-    if ~isfolder(current_path_dir)
+%% ==========================================================
+% PARALLEL LOOP
+% ===========================================================
+parfor i = 1:length(unique_cities)
+
+    current_city = unique_cities(i);
+    fprintf('Processing %s\n', current_city);
+
+    current_path_dir = fullfile(path_post, current_city);
+    if ~exist(current_path_dir, 'dir')
         mkdir(current_path_dir)
     end
-    
-    % Filter the table to get all entries for the current city
-    city_files = file_pointers(file_pointers.City == current_city, :);
-    
-    % Iterate through each available year for that city
-    parfor j = 1:height(city_files)
-        current_year = city_files.Year(j);
-        file_to_load = city_files.FilePath(j);
-        
-        % fprintf('-------> Loading Year: %d from file: %s\n', current_year, file_to_load);
-        
-        try
-            current_temp_data{j} = readtable(file_to_load);
-        catch ME
-            fprintf('-------> ERROR loading or processing file: %s\n', file_to_load);
-            fprintf('-------> Error message: %s\n', ME.message);
-        end % end try
-    end % end parfor j
 
-    % Collapse the data struct
+    city_files = file_pointers(file_pointers.City == current_city, :);
+
+    current_temp_data = cell(height(city_files),1);
+
+    for j = 1:height(city_files)
+        try
+            current_temp_data{j} = readtable(city_files.FilePath(j));
+        catch
+            current_temp_data{j} = [];
+        end
+    end
+
+    current_temp_data = current_temp_data(~cellfun(@isempty, current_temp_data));
+
+    if isempty(current_temp_data)
+        continue
+    end
+
     current_big_table = vertcat(current_temp_data{:});
 
-    %% ==========================================================
-    %  Running Statistical Analysis Scripts
-    % ===========================================================
+    if ~ismember('t2m', current_big_table.Properties.VariableNames)
+        continue
+    end
 
-    % % Kernel Density Plot
-    [k1,xk1] = ksdensity(current_big_table.t2m);
+    %% =============================
+    % ANALYSIS
+    % =============================
 
-    f1 = figure('Visible', 'off');
-    f1.Position = [817 570 1183 668];
-    plot(xk1,k1);
-    current_title_ksden = sprintf('t2m for %s',current_city);
-    title(current_title_ksden)
-    xlabel('t2m (K)')
-    
-    % Save imag
-    path_outputfile = fullfile(current_path_dir,'kernel_density_full.png');
-    saveas(f1,path_outputfile)
+    % YEARLY
+    results_annual = mil310stats(current_big_table, 't2m', current_city, ...
+        groupBy='year', savePlotPath=path_post, ...
+        exceedance_pct=[1,5,10,90,95,99]);
 
+    % MONTHLY 1hr
+    results_1hr = mil310stats(current_big_table, 't2m', current_city, ...
+        groupBy='month', savePlotPath=path_post, ...
+        exceedance_pct=[1,5,10,90,95,99]);
 
-    % % Annual Level
-    results_annual = mil310stats(current_big_table, 't2m', current_city,groupBy='year',savePlotPath=path_post,exceedance_pct=[1, 5, 10, 90, 95, 99]);
+    % 6hr
+    current_big_table.t2m_6 = movmean(current_big_table.t2m,[5 0],"Endpoints","fill");
+    results_6hr = mil310stats(current_big_table, 't2m_6', current_city, ...
+        groupBy='month', savePlotPath=path_post, ...
+        exceedance_pct=[1,5,10,90,95,99]);
 
-    output_file_name = sprintf('MIL310_summary_%s_monthsinyear.csv',current_city);
-    path_outputfile = fullfile(current_path_dir,output_file_name);
-    writetable(results_annual, path_outputfile);
-    fprintf('MIL-HDBK-310 yearly summary saved to %s\n', output_file_name);
+    % 24hr
+    current_big_table.t2m_24 = movmean(current_big_table.t2m,[23 0],"Endpoints","fill");
+    results_24hr = mil310stats(current_big_table, 't2m_24', current_city, ...
+        groupBy='month', savePlotPath=path_post, ...
+        exceedance_pct=[1,5,10,90,95,99]);
 
-    % Month Level
-    results_monthly = mil310stats(current_big_table, 't2m', current_city,groupBy='month',savePlotPath=path_post,exceedance_pct=[1, 5, 10, 90, 95, 99]);
+    % 72hr
+    current_big_table.t2m_72 = movmean(current_big_table.t2m,[71 0],"Endpoints","fill");
+    results_72hr = mil310stats(current_big_table, 't2m_72', current_city, ...
+        groupBy='month', savePlotPath=path_post, ...
+        exceedance_pct=[1,5,10,90,95,99]);
 
-    output_file_name = sprintf('MIL310_summary_%s_month_1hr.csv',current_city);
-    path_outputfile = fullfile(current_path_dir,output_file_name);
-    writetable(results_monthly, path_outputfile);
-    fprintf('MIL-HDBK-310 monthly summary saved to %s\n', output_file_name);
+    %% =============================
+    % SAVE
+    % =============================
+    writetable(results_annual, fullfile(current_path_dir, sprintf('MIL310_summary_%s_year.csv',current_city)));
+    writetable(results_1hr,    fullfile(current_path_dir, sprintf('MIL310_summary_%s_month_1hr.csv',current_city)));
+    writetable(results_6hr,    fullfile(current_path_dir, sprintf('MIL310_summary_%s_month_6hr.csv',current_city)));
+    writetable(results_24hr,   fullfile(current_path_dir, sprintf('MIL310_summary_%s_month_24hr.csv',current_city)));
+    writetable(results_72hr,   fullfile(current_path_dir, sprintf('MIL310_summary_%s_month_72hr.csv',current_city)));
 
-    % Month Level - 6 hours ave
-    current_big_table.t2m_6 =  movmean(current_big_table.t2m,[5 0],Endpoints="fill");
-    results_monthly = mil310stats(current_big_table, 't2m_6', current_city,groupBy='month',savePlotPath=path_post,exceedance_pct=[1, 5, 10, 90, 95, 99]);
+    %% =============================
+    % STORE STRUCT
+    % =============================
+    city_struct = struct();
+    city_struct.yearly = results_annual;
+    city_struct.monthly_1hr = results_1hr;
+    city_struct.monthly_6hr = results_6hr;
+    city_struct.monthly_24hr = results_24hr;
+    city_struct.monthly_72hr = results_72hr;
 
-    output_file_name = sprintf('MIL310_summary_%s_month_6hr.csv',current_city);
-    path_outputfile = fullfile(current_path_dir,output_file_name);
-    writetable(results_monthly, path_outputfile);
-    fprintf('MIL-HDBK-310 monthly summary saved to %s\n', output_file_name);
+    results_all{i} = city_struct;
 
-    % Month Level - 24 hours ave
-    current_big_table.t2m_24 =  movmean(current_big_table.t2m,[23 0],Endpoints="fill");
-    results_monthly = mil310stats(current_big_table, 't2m_24', current_city,groupBy='month',savePlotPath=path_post,exceedance_pct=[1, 5, 10, 90, 95, 99]);
+end
 
-    output_file_name = sprintf('MIL310_summary_%s_month_24hr.csv',current_city);
-    path_outputfile = fullfile(current_path_dir,output_file_name);
-    writetable(results_monthly, path_outputfile);
-    fprintf('MIL-HDBK-310 monthly summary saved to %s\n', output_file_name);
+%% ==========================================================
+% COMBINE + SAVE
+% ===========================================================
+results_all = [results_all{:}];
 
-    % Month Level - 72 hours ave
-    current_big_table.t2m_72 =  movmean(current_big_table.t2m,[71 0],Endpoints="fill");
-    results_monthly = mil310stats(current_big_table, 't2m_72', current_city,groupBy='month',savePlotPath=path_post,exceedance_pct=[1, 5, 10, 90, 95, 99]);
+save(fullfile(path_post,'MIL310_all_results.mat'), ...
+    'results_all', '-v7.3');
 
-    output_file_name = sprintf('MIL310_summary_%s_month_72hr.csv',current_city);
-    path_outputfile = fullfile(current_path_dir,output_file_name);
-    writetable(results_monthly, path_outputfile);
-    fprintf('MIL-HDBK-310 monthly summary saved to %s\n', output_file_name);
-
-end % end for i
-
-
-fprintf('\n--- Analysis Complete ---\n');
-
+fprintf('\n--- Analysis + Struct Save Complete ---\n');
