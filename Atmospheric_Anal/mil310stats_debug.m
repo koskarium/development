@@ -51,6 +51,10 @@ num_pct = length(exceedance_pct); % Number of percentiles to calculate
 
 city_name = string(city);
 
+% Unique years
+years_list = unique(data.year);
+num_years = length(years_list);
+
 % Find column names ignoring case
 var_names = data.Properties.VariableNames;
 year_col = var_names{lower(var_names) == "year"};
