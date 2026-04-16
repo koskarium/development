@@ -1,0 +1,15 @@
+fid = fopen('report.tex','w');
+
+fprintf(fid, '\\section{Results}\n');
+
+for i = 1:length(results_all)
+    city = results_all(i).city;
+
+    fprintf(fid, '\\subsection{City: %s}\n', city);
+
+    fprintf(fid, '\\pgfplotstabletypeset[col sep=comma]{Era5/Postprocess/%s/MIL310_summary_%s_year.csv}\n', city, city);
+
+    % repeat for other tables...
+end
+
+fclose(fid);

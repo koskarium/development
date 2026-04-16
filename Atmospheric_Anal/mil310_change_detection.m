@@ -63,11 +63,23 @@ for m = months
     for k = 1:numE
 
         t = thresholds(k);
+        
+        % ----------------------------
+        % SPLIT UPPER vs LOWER TAIL
+        % ----------------------------
+        if pct(k) <= 50
+            % Upper tail (heat extremes)
+            x1_ex = x1(x1 >= t);
+            x2_ex = x2(x2 >= t);
+        else
+            % Lower tail (cold extremes)
+            x1_ex = x1(x1 <= t);
+            x2_ex = x2(x2 <= t);
+        end
 
-        x1_ex = x1(x1 >= t);
-        x2_ex = x2(x2 >= t);
-
-        % Need enough samples for rank-sum
+        % ----------------------------
+        % Rank-sum test
+        % ----------------------------
         if numel(x1_ex) >= 5 && numel(x2_ex) >= 5
             p_tail(k) = ranksum(x1_ex, x2_ex);
         end
