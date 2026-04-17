@@ -8,9 +8,11 @@
 % Matlab: R2023a Update 5 (9.14.0.2337262)
 % Version: 1.0.0
 % Initial: 2026.0215
-% Latest: 2026.0304
+% Latest: 2026.0416
 
 % Notes
+% 2026/04/16 Added the POT Analysis for extreme values
+% 2026/04/15 Added the window analysis for KS and Wilkson Test
 % 2026/03/04 Made changes to incorp the data set from ERA5
 % 2026/02/15 This initial version uses mil310_generate_sample to run since we do not have the dataset available 
 
@@ -46,7 +48,7 @@ path_post = fullfile(pwd, dir_post);
 latest_year = year(datetime("today"));
 
 window1 = [latest_year-30, latest_year];   % 30-year baseline
-window2 = [latest_year-4,  latest_year];   % 5-year recent
+window2 = [latest_year-15,  latest_year];   % 15-year recent
 
 exceedance_levels = [1 5 10 90 95 99];
 
@@ -84,7 +86,7 @@ results_all = cell(length(unique_cities),1);
 %% ==========================================================
 % PARALLEL CITY LOOP
 % ==========================================================
-for i = 1:length(unique_cities)
+parfor i = 1:length(unique_cities)
 
     current_city = unique_cities(i);
     fprintf('Processing %s\n', current_city);
@@ -219,7 +221,7 @@ for i = 1:length(unique_cities)
             lower_pct=1, ...
             minGap=hours(48), ...
             returnPeriods=[10 25 50]);
-
+    fprintf('-------> POT done for %s.\n',current_city);
     catch ME
         warning("POT analysis failed for %s: %s", current_city, ME.message);
 

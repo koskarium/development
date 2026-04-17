@@ -28,9 +28,11 @@ numE = length(pct);
 
 % ----------------------------------------------------------
 % Output:
-% Month | KS_p | KS_sig | p(exceedances...)
+% Month | KS_p | KS_sig | p(exceedances) | median x1 > med x2 (exceedances)
 % ----------------------------------------------------------
-results = cell(12, 3 + numE);
+%results = cell(12, 3 + numE);
+results = cell(12, 3 + numE * 2); % For the use of median comparison
+
 
 for m = months
 
@@ -59,6 +61,7 @@ for m = months
     thresholds = prctile(pooled, pct_vals);
 
     p_tail = NaN(1, numE);
+    median_tail = NaN(1, numE);
 
     for k = 1:numE
 
@@ -84,12 +87,19 @@ for m = months
             p_tail(k) = ranksum(x1_ex, x2_ex);
         end
 
+        % ----------------------------
+        % Median 
+        % ----------------------------
+        if numel(x1_ex) >= 5 && numel(x2_ex) >= 5
+            median_tail(k) = median(x1_ex) > median(x2_ex);
+        end
+
     end
 
     % ======================================================
     % Store results
     % ======================================================
-    results(m,:) = [{m}, {p_ks}, {h_ks}, num2cell(p_tail)];
+    results(m,:) = [{m}, {p_ks}, {h_ks}, num2cell(p_tail), num2cell(median_tail)];
 
 end
 
@@ -97,8 +107,9 @@ end
 % Column names
 % ==========================================================
 tail_names = arrayfun(@(x) sprintf('p_%d', x), pct, 'UniformOutput', false);
+median_names = arrayfun(@(x) sprintf('medX1biggerX2_%d', x), pct, 'UniformOutput', false);
 
-varNames = [{'Month','KS_p','KS_sig'}, tail_names];
+varNames = [{'Month','KS_p','KS_sig'}, tail_names,median_names];
 
 stats = cell2table(results, 'VariableNames', varNames);
 
